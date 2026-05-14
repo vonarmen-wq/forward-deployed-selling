@@ -68,7 +68,7 @@ cohort. [Apply →](https://forwarddeployedselling.com/charter)*
 ## Install in sixty seconds
 
 **Claude.ai** — Settings → Capabilities → Skills → Add → upload this folder
-(or the [zip](https://forwarddeployedselling.com/forward-deployed-selling-v0.5.zip)).
+(or [download the zip](https://forwarddeployedselling.com/skill/install)).
 
 **Claude Code** — drop this folder into `~/.claude/skills/forward-deployed-selling/`.
 
