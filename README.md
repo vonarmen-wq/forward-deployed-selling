@@ -60,8 +60,7 @@ Install the skill and your next three asks turn into:
 
 Sellers using the doctrine target 3–10x cycle compression.\*
 
-\* *Design target. v0.7 replaces it with measured benchmarks from the charter
-cohort. [Apply →](https://forwarddeployedselling.com/charter)*
+\* *Design target. Measured benchmarks land in v0.7.*
 
 ---
 
@@ -87,21 +86,9 @@ this skill operationalizes it. IP holder: Caerus Capital Group, LLC.
 
 ---
 
-## Charter cohort — v0.7
-
-The performance numbers in this skill are tagged `[design target]`. The
-charter cohort is where they become field-measured. Your deals become the
-benchmarks the rest of the market learns from. Cohort closes Q3 2026.
-
-[Apply for the charter cohort →](https://forwarddeployedselling.com/charter)
-
----
-
 ## Going deeper
 
 - [Doctrine](https://forwarddeployedselling.com/doctrine) · the methodology in long form
-- [Field manual](https://forwarddeployedselling.com/field-manual) · worked examples
-- [Book draft access](https://forwarddeployedselling.com/book/draft-access) · charter readers
 - [`ARCHITECTURE.md`](ARCHITECTURE.md) · what's in this repo and how it loads
 - [`CONTRIBUTING.md`](CONTRIBUTING.md) · versioning, contribution model, license
 - [`KNOWN_ISSUES.md`](KNOWN_ISSUES.md) · open items and v0.6 candidate work
