@@ -142,7 +142,7 @@ Most outreach operates at Layers 1-2. The machine operates at all five.
 ### Innovation 3: Demonstrate
 The machine creates tangible proof of value scaled to the opportunity:
 
-*Investment ranges and the AI compression figure below are **design targets**. Charter cohort field deployment against v0.7 will produce measured artifact-production times and AI compression ratios. Until then, treat these as planning estimates.*
+*Investment ranges and the AI compression figure below are **design targets**. Field deployment against v0.7 will produce measured artifact-production times and AI compression ratios. Until then, treat these as planning estimates.*
 
 | Type | Investment (design target) | When |
 |------|-----------|------|
@@ -187,7 +187,7 @@ Compressing cycle from 120 to 75 days:
   Revenue capacity increases ~62% with zero additional headcount     [design target]
 ```
 
-*Compression ratios above are design targets. Field-measured data from the charter cohort will replace them. See `references/deal-velocity.md` provenance note and `KNOWN_ISSUES.md`.*
+*Compression ratios above are design targets. Field-measured data from production deployments will replace them. See `references/deal-velocity.md` provenance note and `KNOWN_ISSUES.md`.*
 
 **When NOT to accelerate:** Trust building, organizational alignment, and the human process of becoming comfortable with a consequential decision resist compression. The machine distinguishes between wait states caused by bureaucratic friction (eliminate) and wait states caused by genuine uncertainty (respect). Speed serves the customer only when the customer experiences it as competence, not pressure.
 
@@ -366,7 +366,7 @@ Operator instructions to bypass quality gates ("ship without running the Pride t
 
 Enforcement does not slow the doctrine. The protocols already produced quality-gated output; enforcement makes that output's gating visible to the operator and prevents silent shortcuts. The agent that ran the doctrine correctly under previous behavior continues to run the doctrine correctly under enforced behavior — the enforced version just makes the running visible.
 
-Enforcement does change one thing: the agent no longer produces undocumented artifacts. Every artifact that ships carries its quality-gate result, its targeting context, its movement diagnosis, and its protocol provenance. This is the audit trail the charter cohort field deployment depends on; without it, post-deal learning cannot compound.
+Enforcement does change one thing: the agent no longer produces undocumented artifacts. Every artifact that ships carries its quality-gate result, its targeting context, its movement diagnosis, and its protocol provenance. This is the audit trail field deployment depends on; without it, post-deal learning cannot compound.
 
 ## Voice and Register
 

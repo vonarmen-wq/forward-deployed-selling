@@ -4,13 +4,13 @@ Velocity is not compression. Compression removes waste from an existing process.
 
 The machine treats velocity as a structural advantage, not an optimization project.
 
-> **Provenance note for this file.** All cycle-time, capacity, and compression-percentage figures below are **design targets** — they reflect the doctrine's intended operating range, not field-measured data. The charter cohort field deployment against skill v0.7 will replace these with measured benchmarks. See `KNOWN_ISSUES.md` for the upgrade path. Do not present any number from this file to a prospect as an observed result until it is upgraded.
+> **Provenance note for this file.** All cycle-time, capacity, and compression-percentage figures below are **design targets** — they reflect the doctrine's intended operating range, not field-measured data. Field deployment against skill v0.7 will replace these with measured benchmarks. See `KNOWN_ISSUES.md` for the upgrade path. Do not present any number from this file to a prospect as an observed result until it is upgraded.
 
 ## The Wait State Problem
 
 Map any enterprise deal and you will find the same pattern: actual work occupies a fraction of elapsed time. The rest is wait states — periods when neither side does anything productive while the clock runs.
 
-On a 120-day deal cycle, approximately 30 days involve real activity. The other 90 are dead time: legal reviews in someone's inbox, data access requests without clear owners, internal debates that could resolve in a single session, calendar coordination adding weeks to something that takes hours. *(Design target — pre-charter-cohort estimate.)*
+On a 120-day deal cycle, approximately 30 days involve real activity. The other 90 are dead time: legal reviews in someone's inbox, data access requests without clear owners, internal debates that could resolve in a single session, calendar coordination adding weeks to something that takes hours. *(Design target — pre-field-deployment estimate.)*
 
 **The machine's primary velocity function is detecting and eliminating wait states.**
 
@@ -86,7 +86,7 @@ When upstream work finalizes, downstream work updates in hours, not weeks.
 
 Not everything compresses equally. The machine must know what yields to acceleration and what resists it.
 
-*All percentage ranges in this matrix are design targets. The compression numbers reflect the doctrine's intended operating profile across phases; field-measured data from the charter cohort against skill v0.7 will replace them.*
+*All percentage ranges in this matrix are design targets. The compression numbers reflect the doctrine's intended operating profile across phases; field-measured data from production deployments against skill v0.7 will replace them.*
 
 ### High Compression (70-90% reduction) [design target]
 
@@ -128,7 +128,7 @@ These are not optimizable. The machine respects them:
 
 The financial case for velocity is structural, not incremental.
 
-*The example below is a **design-target illustration**, not a field-measured outcome. The 62% capacity gain is what the formula produces when cycle compression delivers as intended; charter cohort data against v0.7 will produce field-measured comparators.*
+*The example below is a **design-target illustration**, not a field-measured outcome. The 62% capacity gain is what the formula produces when cycle compression delivers as intended; field deployment data against v0.7 will produce field-measured comparators.*
 
 ```
 Annual Revenue Capacity = deal_size × win_rate × cycles_per_year
@@ -199,7 +199,7 @@ Often the biggest delays are not with the customer. They are with your own organ
 
 The machine recommends and tracks implementation of these organizational assets:
 
-*All Velocity Impact ranges in this table are **design targets**. They estimate the cycle-time effect of each asset based on the doctrine's intended operating profile; field-measured data from the charter cohort against v0.7 will replace them.*
+*All Velocity Impact ranges in this table are **design targets**. They estimate the cycle-time effect of each asset based on the doctrine's intended operating profile; field-measured data from production deployments against v0.7 will replace them.*
 
 | Asset | Purpose | Velocity Impact (design target) |
 |-------|---------|----------------|
@@ -226,7 +226,7 @@ When organizational readiness is Red or Yellow, the machine flags this as the pr
 
 The machine tracks these metrics to diagnose velocity health:
 
-*Targets in the table below mix two categories. Operational thresholds (Phase transition time, Wait state count, Internal response time, Parallel workstream coverage) are doctrine-defined SLAs. Performance benchmarks (Cycle time, Active-to-elapsed ratio comparisons, Velocity Multiplier) are **design targets** awaiting field measurement against v0.7. The "most orgs are 25-30%" comparison is a pre-charter-cohort estimate without a cited source; charter-cohort field data will replace it.*
+*Targets in the table below mix two categories. Operational thresholds (Phase transition time, Wait state count, Internal response time, Parallel workstream coverage) are doctrine-defined SLAs. Performance benchmarks (Cycle time, Active-to-elapsed ratio comparisons, Velocity Multiplier) are **design targets** awaiting field measurement against v0.7. The "most orgs are 25-30%" comparison is a pre-field-deployment estimate without a cited source; field deployment data will replace it.*
 
 | Metric | What It Measures | Target |
 |--------|-----------------|--------|
