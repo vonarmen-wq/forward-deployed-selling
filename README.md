@@ -74,6 +74,10 @@ Sellers using the doctrine target 3–10x cycle compression.\*
 **Claude API** — upload via the Skills API. Cross-platform via the open Agent
 Skills spec (Codex CLI, ChatGPT) without modification.
 
+**Via the `skills` CLI** — `npx skills add vonarmen-wq/forward-deployed-selling`.
+Cross-platform installer from Vercel Labs for the open Agent Skills ecosystem;
+supports 70+ AI coding agents.
+
 [Step-by-step install + verification prompt →](https://forwarddeployedselling.com/skill/install)
 
 ---
