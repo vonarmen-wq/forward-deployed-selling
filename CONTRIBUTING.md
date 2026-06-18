@@ -17,7 +17,7 @@ benchmarks. See [`KNOWN_ISSUES.md`](KNOWN_ISSUES.md) for the upgrade path.
 The doctrine has been built in production across deal sizes from five hundred
 thousand to five hundred million dollars, refined against losses that older
 methodologies could not explain. Field experience inside AWS, Saxony
-Partners, and Caerus Alpha shaped the doctrine; the skill operationalizes
+Partners, and Endava shaped the doctrine; the skill operationalizes
 it.
 
 ---

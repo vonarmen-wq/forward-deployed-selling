@@ -80,7 +80,7 @@ Skills spec (Codex CLI, ChatGPT) without modification.
 
 ## About the author
 
-Angel Armendariz is a twenty-year enterprise sales practitioner & Innovation Advisor to Fortune 500 enterprises. Field
+Angel Armendariz is a twenty-year enterprise sales practitioner and Innovation Advisor to Fortune 500 enterprises. Field
 experience inside AWS, Saxony Partners, and Endava shaped the doctrine;
 this skill operationalizes it. IP holder: Caerus Capital Group, LLC.
 
