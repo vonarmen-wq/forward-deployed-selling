@@ -4,7 +4,7 @@
 
 The skill's performance numbers — response rates, cycle compressions, demonstration-effort estimates — are **design targets**, not field-measured benchmarks. They reflect the doctrine's intended operating profile, derived from twenty years of practitioner experience, not measured outcomes from production deployments of this skill.
 
-**Upgrade path:** Charter cohort field deployment against skill v0.7. After at least 30 days of cohort use against real accounts, field benchmarks replace the design targets inventoried below. Replacement format in the source files: `[field benchmark, N=<deployments>, Q<quarter> v0.7]`.
+**Upgrade path:** Field deployment against skill v0.7. When enough production deployments exist for a given claim (typically 30+ days of use across multiple accounts), the `[design target]` label is replaced with `[field benchmark, N=<deployments>, Q<quarter> v0.7]` naming the sample size and period.
 
 This file is reviewed at every skill version increment.
 

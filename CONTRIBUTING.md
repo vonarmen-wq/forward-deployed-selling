@@ -11,9 +11,8 @@ This is the v0.5 release. It carries `version: 0.5` in the `SKILL.md`
 frontmatter.
 
 Performance claims throughout the skill are tagged `[design target]`.
-Charter cohort field deployment against v0.7 will replace design targets
-with field-measured benchmarks. See [`KNOWN_ISSUES.md`](KNOWN_ISSUES.md) for
-the upgrade path.
+Field deployment against v0.7 will replace design targets with field-measured
+benchmarks. See [`KNOWN_ISSUES.md`](KNOWN_ISSUES.md) for the upgrade path.
 
 The doctrine has been built in production across deal sizes from five hundred
 thousand to five hundred million dollars, refined against losses that older
