@@ -11,6 +11,8 @@ sixty seconds. Read it yourself the same afternoon.
 [Install the skill →](https://forwarddeployedselling.com/skill/install) ·
 [Read the doctrine →](https://forwarddeployedselling.com/doctrine)
 
+![FDS in action — Claude building a GTM strategy in seconds](docs/demo.jpg)
+
 ---
 
 ## The old playbook assumed you had the information.
