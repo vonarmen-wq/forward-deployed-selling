@@ -1,0 +1,15 @@
+{
+  "name": "forward-deployed-selling",
+  "owner": {
+    "name": "Angel Armendariz",
+    "url": "https://angelarmendariz.com"
+  },
+  "plugins": [
+    {
+      "name": "forward-deployed-selling",
+      "source": "./",
+      "description": "Operating doctrine for AI-era enterprise sales: twelve /fds commands, enforcing hooks, reviewing agents, typed records, evals."
+    }
+  ],
+  "description": "Forward Deployed Selling: the enterprise sales doctrine for the AI era, as a Claude Code plugin."
+}
