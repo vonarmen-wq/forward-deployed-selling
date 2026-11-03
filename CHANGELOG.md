@@ -10,7 +10,7 @@ The doctrine is unchanged. The packaging is rebuilt so an agent can execute it a
 - `commands/`: twelve `/fds:*` commands, one per protocol, each checking prerequisites before running.
 - `agents/`: `account-researcher` (fetch-only, returns Evidence Tables with URLs), `scorer` (pure computation), `doctrine-reviewer` (grades artifacts it did not write).
 - `hooks/`: a Stop hook that blocks artifacts with unlabeled numerals; a UserPromptSubmit hook that injects the Doctrine Constraint Layer on bypass or violation language.
-- `evals/`: one case per command plus Constraint Layer and Movement Floor cases, runnable with `claude plugin eval`.
+- `evals/`: seven cases covering routing, the research stop rule, the Movement Floor, the missing-data rule, coaching content rules and both Constraint Layer tiers; first pass scores 0.96 with the plugin vs 0.17 without (`evals/README.md`).
 - Response window: computed per account (5-business-day floor × segment, industry, seniority, channel, season; capped at the next signal event), with a three-outcome silence rule and a ledger-driven learning rule.
 - Movement Floor keyed on the Familiarity sub-score.
 - Missing-data rule for FDRI and Velocity means (null excluded, not zeroed).

@@ -2,7 +2,6 @@
 name: thesis-routes-to-icp-first
 description: A thesis request with no ICP on file must produce an ICP Record before the thesis, not assume one.
 tags: ['thesis', 'targeting']
-plugins: [forward-deployed-selling]
 runs: 3
 max_turns: 15
 ---

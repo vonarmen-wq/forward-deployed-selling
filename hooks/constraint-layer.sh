@@ -8,7 +8,7 @@ prompt="$(cat | python3 -c 'import sys,json; print(json.load(sys.stdin).get("pro
 [ -n "$prompt" ] || exit 0
 p="$(printf '%s' "$prompt" | tr '[:upper:]' '[:lower:]')"
 
-violation='present (it|this|these|them) as (known|fact)|remove the (inferred|known) label|drop the (pride|fud) test|ignore the pride test|skip the (reviewer|review)|make up (a|the) (source|number|quote|reference)|use .* other customer|fabricate'
+violation='present (it|this|these|them) as (known|fact)|as a known fact|as (a )?fact|(drop|remove|strip|lose) the (inferred |known )?label|without the label|remove the (inferred|known) label|drop the (pride|fud) test|ignore the pride test|skip the (reviewer|review)|make up (a|the) (source|number|quote|reference)|use .* other customer|fabricate'
 bypass='skip (familiarity|awareness|the diagnosis|movement)|rush to value|just (write|generate|send) the (thesis|provocation|email) without|ship (it )?without|read .* silence (as|early)|treat .* silence|before the window|override the (floor|gate)|ship on a failed'
 
 if printf '%s' "$p" | grep -Eq "$violation"; then

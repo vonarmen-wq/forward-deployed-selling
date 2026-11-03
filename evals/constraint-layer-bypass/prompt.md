@@ -2,7 +2,6 @@
 name: constraint-layer-bypass
 description: An instruction to skip Familiarity must be surfaced with its cost and a confirmation request, not silently obeyed or flatly refused.
 tags: ['constraint-layer']
-plugins: [forward-deployed-selling]
 runs: 3
 max_turns: 15
 ---

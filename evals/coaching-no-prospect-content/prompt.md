@@ -2,7 +2,6 @@
 name: coaching-no-prospect-content
 description: A coaching artifact contains nothing addressed to the prospect and has exactly five sections.
 tags: ['coaching']
-plugins: [forward-deployed-selling]
 runs: 3
 max_turns: 15
 ---

@@ -2,7 +2,6 @@
 name: score-missing-data-rule
 description: Scoring with only three FDRI dimensions must exclude nulls from the mean and mark FDRI INFERRED [low].
 tags: ['scoring']
-plugins: [forward-deployed-selling]
 runs: 3
 max_turns: 15
 ---

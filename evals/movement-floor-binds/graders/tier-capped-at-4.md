@@ -1,6 +1,6 @@
 ---
 type: regex
 weight: 1
-arm: plugin
+arm: both
 pattern: '[Tt]ier[: ]*4'
 ---
