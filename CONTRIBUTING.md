@@ -1,66 +1,36 @@
 # Contributing
 
-The skill ships on a published cadence. Version notes live at
-[forwarddeployedselling.com/skill/changelog](https://forwarddeployedselling.com/skill/changelog).
-
----
-
 ## Status
 
-This is the v0.5 release. It carries `version: 0.5` in the `SKILL.md`
-frontmatter.
+The current release is 0.6.0. Angel Armendariz is the sole maintainer and every change flows through him. Issues and discussion are welcome, and pull requests are reviewed; a pull request that adds or changes a protocol must come with an eval case that fails before the change and passes after it.
 
-Performance claims throughout the skill are tagged `[design target]`.
-Field deployment against v0.7 will replace design targets with field-measured
-benchmarks. See [`KNOWN_ISSUES.md`](KNOWN_ISSUES.md) for the upgrade path.
+## The rules that keep the repository coherent
 
-The doctrine has been built in production across deal sizes from five hundred
-thousand to five hundred million dollars, refined against losses that older
-methodologies could not explain. Field experience inside AWS, Saxony
-Partners, and Endava shaped the doctrine; the skill operationalizes
-it.
+1. Any label, band, threshold, formula or gate is defined once, in `skills/forward-deployed-selling/references/canon.md`, and every protocol links to that definition rather than restating it.
+2. Every protocol's frontmatter names the records it consumes and the record it emits, using the names in `schemas/`.
+3. Every protocol ends with a `## Gate` section whose checks are numbered and whose pass count matches the Gates table in canon.
+4. Version talk belongs in `CHANGELOG.md` and `KNOWN_ISSUES.md`; a protocol file never mentions a release.
+5. Examples use invented companies, `.example` URLs and labeled figures, and each one passes the gates it claims to pass.
+6. Protocols and examples use the declarative, role-based register described in `ARCHITECTURE.md` under Voice.
 
----
+## Testing
 
-## Contribution model
+```
+claude plugin validate . --strict
+claude plugin eval . --trust-plugin --runs 2 \
+  --allow-tools Skill Read Glob Grep Write WebSearch WebFetch Agent --no-publish
+```
 
-**Pre-v1.0 (currently v0.5).** Angel Armendariz is sole maintainer. All
-changes flow through him. Issues and discussions are welcome on this repo;
-pull requests are reviewed but not the primary contribution mechanism at
-this stage.
+The tool grant is required: without `Skill` and `Read` the plugin cannot load its own files during an eval. Add a case under `evals/<kebab-name>/` with a `prompt.md` and at least one grader in `graders/`; `evals/README.md` lists the existing cases and the first results.
 
-**Post-v1.0.** A limited contributor model opens:
+## Versioning
 
-- **Master Practitioners** may contribute market and motion adapters.
-- **Licensees** may contribute stack adapters.
-- **Certified practitioners** may contribute domain overlays.
-
-Core doctrine remains under Angel's control.
-
----
+Semver, in `.claude-plugin/plugin.json`. A patch release changes wording or examples; a minor release adds or changes a protocol, command, agent or hook; a major release changes a canon definition that existing ledgers depend on.
 
 ## License and attribution
 
-Apache 2.0. See [`LICENSE`](LICENSE) and [`NOTICE`](NOTICE).
-
-The skill files may be installed, copied, modified, and redistributed under
-Apache 2.0. The "Forward Deployed Selling" name and "FDS Certified" mark are
-protected; commercial use of the methodology name (consulting offerings,
-software products, certification programs) requires separate licensing —
-see [forwarddeployedselling.com/license](https://forwarddeployedselling.com/license).
-
-IP holder: **Caerus Capital Group, LLC**.
-
----
+Copyright 2026 Caerus Capital Group, LLC, under Apache 2.0 (`LICENSE`, `NOTICE`). Contributions are licensed to Caerus Capital Group, LLC on the same terms. The "Forward Deployed Selling" name and the "FDS Certified" mark are held by Caerus Capital Group, LLC, and commercial use of the methodology name requires a separate license from [forwarddeployedselling.com/license](https://forwarddeployedselling.com/license).
 
 ## Reporting issues
 
-File issues on this repository for:
-
-- Doctrine ambiguities or gaps surfaced by field use.
-- Protocol contradictions across files.
-- Examples that no longer match the protocols they illustrate.
-- Performance claims that field experience contradicts.
-
-For security or licensing matters, contact via
-[forwarddeployedselling.com/license](https://forwarddeployedselling.com/license).
+File an issue when a protocol contradicts `canon.md`, when an example no longer matches its protocol, when an eval is flaky, or when field experience contradicts a design target (include your N).

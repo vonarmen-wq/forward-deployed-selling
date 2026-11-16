@@ -1,132 +1,64 @@
 # Architecture
 
-This document describes what lives in the repository, how the files load, and
-the authoring philosophy that governs them. For the sales-facing overview see
-[`README.md`](README.md); for the operating doctrine itself see
-[`SKILL.md`](SKILL.md).
+What lives in the repository, how it loads, and the one rule that keeps it consistent.
 
----
-
-## Repository layout
+## Layout
 
 ```
-SKILL.md                          The router. Always loaded. Decides which protocols
-                                  load for which task; carries the targeting
-                                  prerequisites, the 3×3 architecture summary,
-                                  and the three constraint layers.
+.claude-plugin/plugin.json        Manifest. The version number lives here and nowhere else.
 
-foundations.md                    Doctrinal framing. Why the principles matter,
-                                  why velocity is structural, the four Revenue
-                                  Physics forces. Loaded only when an output
-                                  requires foundational framing.
+skills/forward-deployed-selling/
+  SKILL.md                        The router, loaded whenever the skill triggers. It holds the
+                                  architecture, the decision hierarchy, the command table, the
+                                  constraint layers and the Output Standards, and points to the
+                                  files that hold the rules.
+  references/canon.md             Every definition, label, band, threshold, formula and gate.
+                                  It wins any disagreement with any other file.
+  schemas/                        The typed records each protocol consumes and emits.
+  connectors/                     Field maps from CRM, mail, calendar, file and knowledge sources
+                                  into those records, plus a discovery procedure for any source
+                                  without a map.
+  capabilities/                   Targeting and operational protocols: ICP, GTM, value
+                                  proposition, coaching, disqualification, revision, convergence.
+  references/                     Operational protocols: thesis, profiles, movements, velocity,
+                                  scoring.
+  examples/                       One synthetic worked example per artifact type, plus
+                                  getting-started.md, which addresses the reader directly.
+  foundations.md                  The essays on why the doctrine is shaped this way. They are
+  foundations-appendix.md         read for teaching and writing, not for artifact generation.
 
-capabilities/                     Loaded per task.
-  icp-definition-protocol.md        ICP triangle (Market × Persona × Channel)
-  gtm-strategy-protocol.md          GTM as f(ICP, product/service)
-  value-proposition-framing.md      Dual-frame methodology + FUD test
-  coaching-protocol.md              Live-deal coaching with three-axis diagnosis
-  disqualification-protocol.md      Honesty Mandate operationalized
-  thesis-revision-protocol.md       Validation → refinement → re-delivery loop
-  agent-convergence-protocol.md     Cross-functional orchestration
-
-references/                       Loaded per task.
-  thesis-protocol.md                Thesis generation (5 components, sourced)
-  stakeholder-profiles.md           Profile Schema + U/B/S/E + Incentive/Constraint
-  movements.md                      Awareness → Familiarity → Value
-  deal-velocity.md                  Wait-state detection, parallel workstreams
-  scoring.md                        Composite Opportunity Score with Movement Floor
-  convergence.md                    Doctrinal framing for cross-functional revenue
-
-examples/                         Reference implementations. Read before generating
-                                  artifacts of the same kind.
-  delta-thesis.md                    Full thesis on Delta Air Lines (public data)
-  cfo-canonical-example.md           Dual-frame value proposition
-  anthem-coaching.md                 Stalled-deal coaching diagnostic
-  pipeline-scoring.md                Multi-account composite scoring
-  icp-definition.md                  ICP triangle worked example
-  gtm-strategy.md                    GTM strategy derived from the ICP
-  first-prompts.md                   Vetted starter prompts for new practitioners
-
-KNOWN_ISSUES.md                   Inventory of design-target performance claims
-                                  pending field benchmark, deferred audit items,
-                                  v0.6 candidate work, and contributor notes.
+commands/                         Thirteen /fds:* commands. Each loads canon plus one protocol,
+                                  checks prerequisites, runs the gate and writes the ledger.
+agents/                           account-context (memory, connectors and web → Context Stack),
+                                  account-researcher (fetch-only), scorer (compute-only),
+                                  doctrine-reviewer (grades what it did not write).
+hooks/                            A Stop hook that blocks unlabeled figures in artifacts and a
+                                  UserPromptSubmit hook that injects the Doctrine Constraint Layer.
+evals/                            One case per enforced behavior; `claude plugin eval` runs them.
+CHANGELOG.md · KNOWN_ISSUES.md · CONTRIBUTING.md · LICENSE · NOTICE
 ```
 
-Start with `examples/first-prompts.md` if you've just installed and want to
-know what to ask first.
+## How it loads
 
----
+Token cost scales with the task. The router loads when the skill triggers. A command then loads `canon.md`, its one protocol, its schema and its matching example, and nothing more. Each agent runs in its own context and returns a structured block, so the researcher's fetched pages and the reviewer's reasoning stay out of the seller's conversation.
 
-## How files load
+## The consistency rule
 
-The skill is structured so that token cost scales with task complexity. Only
-`SKILL.md` is loaded on every invocation; everything else loads on demand.
+A term is defined once, in `canon.md`, and every protocol that needs it links there. A protocol that restates a definition is a defect to file, because restatement is how v0.5 drifted into three label formats, two deal-size tables and two cycle-compression figures. This is the one rule a contributor has to carry.
 
-- **`SKILL.md`** — always loaded. The router. Carries the targeting
-  prerequisites, the 3×3 architecture summary, and the three constraint
-  layers.
-- **`capabilities/`** — loaded per task. Targeting capabilities
-  (`icp-definition-protocol.md`, `gtm-strategy-protocol.md`,
-  `value-proposition-framing.md`) are the foundational protocols that qualify
-  the target. Operational capabilities (`coaching-protocol.md`,
-  `disqualification-protocol.md`, `thesis-revision-protocol.md`,
-  `agent-convergence-protocol.md`) execute against a qualified target.
-- **`references/`** — loaded per task. Execution logic against a qualified
-  target.
-- **`examples/`** — loaded when generating an artifact of the same kind.
-- **`foundations.md`** — loaded rarely. Only when an output requires
-  foundational framing (Field Manual essays, executive briefs explaining the
-  methodology to non-practitioners, teaching sessions, or contributor work).
+## Enforcement, by mechanism
 
-See `SKILL.md` for the full file-load decision matrix.
+| Commitment | Held by |
+| --- | --- |
+| No unsourced figures | Stop hook, then the reviewer agent |
+| No fabricated sources | The researcher returns only pages it fetched |
+| Pride Test and Output Standards | The reviewer agent, which did not write the artifact |
+| Targeting and diagnosis before any buyer-facing output | Each command checks the schemas for the records it consumes |
+| Value actions only once Familiarity is reached | The action-class rule in canon, checked by every command |
+| Doctrine Constraint Layer | UserPromptSubmit hook |
+| Private context stays private | The Interaction layer comes from connectors or the seller only; connector reads are read-only and scoped to one account |
+| Audit trail | One ledger line per artifact, in project memory |
 
----
+## Voice
 
-## Authoring philosophy
-
-The skill is **guardrails + principles + high-value examples**. Specifics —
-what to send, when to send it, how to phrase a particular thesis — belong to
-the LLM and the user, not to the doctrine. The doctrine asserts the
-structure; the LLM and the user fill in the execution.
-
-**Hard guardrails (enforced):**
-
-- **Ethics Constraint Layer** — red/yellow/green data sources; the Pride Test
-  on every claim.
-- **Doctrine Constraint Layer** — operator instructions to bypass the
-  doctrine surface the cost of the bypass.
-- **Hallucination Protocol** — every numeric claim is `KNOWN [source]` or
-  `INFERRED [confidence]`. Unsourced numbers presented as `KNOWN` are a Red
-  Light violation.
-- **Targeting + Movement pre-steps** — operational protocols verify the
-  target is qualified before executing.
-
-**Organizing principles (stated, not enforced):**
-
-- **Three-by-three architecture** — three movements, three principles, three
-  innovations.
-- **Targeting Foundation** — ICP × Persona × Channel triangle, GTM derived
-  from ICP, stakeholders identified before any operational work.
-- **Operating tempo** — move with speed; be proactive.
-- **Compress movements; do not skip them** — enforced at the math level via
-  Movement Floor in scoring.
-
----
-
-## Voice and register
-
-The skill speaks in a deliberate register. "The machine," "the agent," "the
-seller" appear as roles, not personalities. Sentences are declarative.
-Decisions are stated as rules. Numeric claims carry `KNOWN`/`INFERRED`
-labels. The register is not stylistic; it is doctrinal. Operational
-discipline reads through tone.
-
-Generated artifacts adopt this register because it signals operational
-discipline to the recipient. Contributors preserve the register through
-future revisions. When the register conflicts with platform-specific style
-preferences (a CRM nudge field, a Slack message, a Teams summary), the
-surface adjusts only — the underlying doctrinal commitments do not soften.
-
-The `README.md` is the exception: it addresses the human deciding whether to
-install, not the agent executing the doctrine. It uses a sales-facing voice
-by design.
+Protocols, schemas and examples name roles (the agent, the seller, the machine) and state rules in declarative sentences with labeled figures. The README and `examples/getting-started.md` address the reader as "you", because each is read by the person deciding whether to install or what to type first.

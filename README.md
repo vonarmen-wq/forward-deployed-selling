@@ -1,103 +1,68 @@
 # Forward Deployed Selling
 
-**You ship with AI. Now sell with it.**
+**The sales doctrine your Claude can run.**
 
-Forward Deployed Selling is the enterprise sales methodology for the AI era —
-refined inside AWS, across twenty years and deal sizes from $500K to $500M.
+Forward Deployed Selling is a Claude plugin for enterprise sales in a market where the buyer has researched you, your competitors and the build-it-yourself option before your first message arrives. Thirteen commands take an account from a qualified target to a sourced thesis, a scored deal and a coaching plan, and a hook stops any figure that arrives without a source.
 
-Install the free Claude skill and your agents inherit the full playbook in
-sixty seconds. Read it yourself the same afternoon.
+[Install →](#install) · [Read the doctrine →](https://forwarddeployedselling.com/doctrine) · [What changed in 0.6 →](CHANGELOG.md)
 
-[Install the skill →](https://forwarddeployedselling.com/skill/install) ·
-[Read the doctrine →](https://forwarddeployedselling.com/doctrine)
-
-![FDS in action — Claude building a GTM strategy in seconds](docs/demo.jpg)
+![FDS in action](docs/demo.jpg)
 
 ---
 
-## The old playbook assumed you had the information.
+## What you get
 
-You don't anymore. Your buyer's AI just researched you, three competitors,
-and a build-vs-buy alternative before this sentence ended.
+Each command runs one protocol, checks what it needs first, and ships through a gate.
 
-- Generic outreach is dead. Every inbox is drowning in AI-generated email.
-- Discovery-led selling is dead. They already know what you sell.
-- The methodologies built before AI assumed an information asymmetry that no
-  longer exists.
+| Say | Run | Get |
+| --- | --- | --- |
+| "Here's what we sell" | `/fds:context --business` | A Business Record every other command reads, so you say it once |
+| "What do we know about this account?" | `/fds:context <account>` | A five-layer Context Stack from your CRM, mail, calendar, files and the public web, every row sourced |
+| "Who should we be selling this to?" | `/fds:icp` | A qualified Ideal Customer Profile: market, persona, channel, disqualifiers |
+| "Write something that earns the meeting" | `/fds:thesis <account>` | A sourced thesis and a one-page provocation, every figure labeled, reviewed by an agent that did not write it |
+| "Prep me for Thursday" | `/fds:profile <name> at <account>` | Who the person is in the deal (User, Buyer, Sponsor, Enabler), what moves them, what blocks them |
+| "Is this deal real?" | `/fds:score <account>` | Movement, readiness and velocity scores, a tier with the Familiarity floor applied, and the next action |
+| "It's gone quiet" | `/fds:revise <account> silence` | A re-fetch of the evidence at the computed window, then a revised thesis or the finding that the account is dormant |
+| "Help me unstick this" | `/fds:coach <account>` | A five-section diagnosis addressed to you, with no text addressed to the prospect |
+| "Should we walk away?" | `/fds:disqualify <account>` | A fit verdict with its source, and the note to send if the answer is no |
 
-FDS is the playbook for the world that replaced it.
+Also `/fds:gtm`, `/fds:diagnose`, `/fds:frame`, `/fds:velocity` and `/fds:converge`. The full table with inputs and outputs is in [`SKILL.md`](skills/forward-deployed-selling/SKILL.md).
 
----
+## How it holds up under pressure
 
-## Built for selling in the AI era
+Each commitment below names the mechanism that holds it, because a methodology that depends on the seller remembering it will be forgotten on the last day of the quarter.
 
-The doctrine was developed in production — not abstracted from one. It assumes
-your buyer has AI, your competitors have AI, and the seller who shows up with
-the sharpest read on the account is the one who gets the meeting.
+- **A research agent fetches the sources.** It returns an evidence table where every `KNOWN` row carries the URL it was read from, and the thesis cites nothing the agent did not return. If an account yields fewer than three sourced facts in a 40-page budget, the protocol stops and says so.
+- **A Stop hook reads every artifact before it ships.** A figure without `KNOWN [url]`, `INFERRED [method] [confidence]` or `[design target]` blocks the artifact and returns the line. Buyer-facing pages carry no labels, so the hook checks that each of their figures appears labeled in the evidence above.
+- **A reviewer agent grades the artifact it did not write**, against five Output Standards and the Pride Test: if the prospect asked how you knew that, would the answer earn respect or discomfort? The verdict goes in the artifact's header.
+- **A prompt hook reads for pressure.** Type "skip the relationship stage, quarter closes Friday" and the agent names the rule, states the cost to this deal, and asks you to confirm before proceeding. The bypass is permitted; it is logged.
+- **The response window is a formula.** A five-business-day floor scaled by deal size, industry, the reader's seniority, the channel and the calendar, capped by the next earnings call. Reaching it re-fetches the evidence; the seller sends nothing unless a row changed.
+- **A ledger records every artifact** with its prediction, and later its outcome. At twenty records per segment the window multipliers are replaced by observed latency; at thirty, each design target in the doctrine is replaced by a measured benchmark.
 
-## Proven where AI gets sold
+## Where context comes from
 
-Refined inside AWS, where enterprise AI deals are won and lost every day. The
-same playbook moves $500K motions and $500M transformations.
+Connect any CRM, mailbox, calendar, file store or knowledge base and the context agent fills the Deal Record and interaction history from it, read-only and scoped to the one account. Salesforce, HubSpot, mail, calendar and Drive have ready field maps; any other source is mapped once by what its fields mean, and the map is saved for you to correct. With no source connected, the agent lists which layer is empty and what would fill it.
 
-## For your team and your agents — on day one
+## Install
 
-Read it like a book. Or drop it into Claude as a skill and every output your
-AI generates — outreach, account plans, exec briefs, call prep — comes back
-doctrine-shaped. Free. Open source. Sixty-second install.
+**Claude Code** (commands, agents and hooks all run):
 
----
+```
+/plugin install forward-deployed-selling --marketplace vonarmen-wq/forward-deployed-selling
+```
 
-## What changes in the first hour
+Then `/fds:context --business` once, and `/fds:icp`. `examples/getting-started.md` has a prompt for every command.
 
-Install the skill and your next three asks turn into:
+**Claude.ai and Cowork:** upload the `skills/forward-deployed-selling/` folder under Settings → Capabilities → Skills. The doctrine, protocols, schemas and examples work there; the commands, hooks and agents are Claude Code features.
 
-- **An intro email grounded in their last earnings call, open job recs, and
-  recent product moves** — not a generic "I noticed your company is growing."
-- **A map of every deal: who'll use it, who'll pay for it, who'll champion
-  it, and whose quiet approval will kill it if you forgot to ask.** Each one
-  with what they need to hear before they say yes.
-- **A point of view sharp enough to earn the first meeting** — sourced,
-  defensible, and specific to their business.
+**Your own agents:** import `schemas/` for typed inputs and outputs, and `agents/doctrine-reviewer.md` as a reusable grader. The protocols are plain markdown.
 
-Sellers using the doctrine target 3–10x cycle compression.\*
+## What is measured
 
-\* *Design target. Measured benchmarks land in v0.7.*
+The plugin's eval suite (eight cases, seven scored at two runs each, November 2026) scores Claude with the plugin at 0.96 on the behaviors it enforces and the same model without it at 0.17; one case, refusing to relabel an estimate as fact, scores 1.0 either way. Performance figures inside the doctrine (response rates, cycle compression, artifact effort) carry `[design target]` until the ledger holds thirty records for that claim; `KNOWN_ISSUES.md` lists each one.
 
----
+## About
 
-## Install in sixty seconds
+Angel Armendariz is a twenty-year enterprise sales practitioner and Innovation Advisor to Fortune 500 enterprises. Field work inside AWS, Saxony Partners and Endava shaped the doctrine; this plugin makes it executable. He is the author of *Forward Deployed Selling*.
 
-**Claude.ai** — Settings → Capabilities → Skills → Add → upload this folder
-(or [download the zip](https://forwarddeployedselling.com/skill/install)).
-
-**Claude Code** — drop this folder into `~/.claude/skills/forward-deployed-selling/`.
-
-**Claude API** — upload via the Skills API. Cross-platform via the open Agent
-Skills spec (Codex CLI, ChatGPT) without modification.
-
-**Via the `skills` CLI** — `npx skills add vonarmen-wq/forward-deployed-selling`.
-Cross-platform installer from Vercel Labs for the open Agent Skills ecosystem;
-supports 70+ AI coding agents.
-
-[Step-by-step install + verification prompt →](https://forwarddeployedselling.com/skill/install)
-
----
-
-## About the author
-
-Angel Armendariz is a twenty-year enterprise sales practitioner and Innovation Advisor to Fortune 500 enterprises. Field
-experience inside AWS, Saxony Partners, and Endava shaped the doctrine;
-this skill operationalizes it. IP holder: Caerus Capital Group, LLC.
-
----
-
-## Going deeper
-
-- [Doctrine](https://forwarddeployedselling.com/doctrine) · the methodology in long form
-- [`ARCHITECTURE.md`](ARCHITECTURE.md) · what's in this repo and how it loads
-- [`CONTRIBUTING.md`](CONTRIBUTING.md) · versioning, contribution model, license
-- [`KNOWN_ISSUES.md`](KNOWN_ISSUES.md) · open items and v0.6 candidate work
-
-Apache 2.0 licensed. The "Forward Deployed Selling" name and "FDS Certified"
-mark are protected — see [license](https://forwarddeployedselling.com/license).
+Copyright 2026 Caerus Capital Group, LLC. Apache 2.0. The "Forward Deployed Selling" name and "FDS Certified" mark are held by Caerus Capital Group, LLC; see [license](https://forwarddeployedselling.com/license). Repository layout: [`ARCHITECTURE.md`](ARCHITECTURE.md). Contributing and evals: [`CONTRIBUTING.md`](CONTRIBUTING.md).
