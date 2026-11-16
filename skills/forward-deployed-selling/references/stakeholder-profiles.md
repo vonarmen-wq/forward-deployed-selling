@@ -1,13 +1,13 @@
 ---
 name: stakeholder-profiles
-consumes: [ICP Record, Evidence Table]
+consumes: [ICP Record, Context Stack]
 emits: Stakeholder Profile
 gate: 5/5
 ---
 
 # Stakeholder Profiling Protocol
 
-Prerequisites: `canon.md` (Stakeholder taxonomy, Evidence labels, Context Stack → Profile Schema mapping); the qualified ICP Record; a research log with fetched sources.
+Prerequisites: `canon.md` (Stakeholder taxonomy, Evidence labels, Context Stack → Profile Schema mapping); the qualified ICP Record; the account's Context Stack, whose `sources_read` is the research log every `KNOWN` row cites.
 
 A stakeholder profile is not a CRM record. It is a decision-intelligence document that lets the machine generate communication with high information content — communication that reduces the recipient's uncertainty about whether the sender understands their specific situation.
 
@@ -25,6 +25,7 @@ Name, title, tenure in role. Background: career history, previous companies, edu
 
 - **Public priorities:** stated in interviews, earnings calls, LinkedIn, conference talks. Quote directly.
 - **Inferred priorities:** derived from job postings, budget signals, organizational change, competitive context. Labeled INFERRED with method and confidence.
+- **Decides / defers to:** what this person can approve alone, and who they need for the rest. Sourced from spending-authority signals, org announcements and prior deals; labeled.
 - **Decision pattern:** data-driven, relationship-oriented, consensus-seeking, fast-moving, risk-averse — inferred from observable behavior.
 - **Communication style:** formal/informal, detail/big-picture, direct/diplomatic.
 - **Personal triggers:** what creates urgency — competitive announcements, regulatory deadlines, board pressure, peer validation, career advancement.
@@ -39,7 +40,7 @@ Interaction history — what was discussed, what resonated, what fell flat. Rela
 
 ### Approach
 
-Lead with (the topic or framing that opens the door). Avoid (what creates resistance). Proof points (which evidence resonates with this person). Timing (when they are most receptive).
+Lead with (the topic or framing that opens the door). Avoid (what creates resistance). Proof points (which evidence resonates with this person). Timing (when they are most receptive). Seniority class (Director / VP / C-suite / CEO-Board) and channel (warm-intro / email / linkedin / mail), both read by the response-window math in `canon.md`. Artifact: the Familiarity-class artifact this profile supports (thesis, value provocation, Bridge, stakeholder-specific value proposition).
 
 ## Function in the deal
 
@@ -96,7 +97,7 @@ All five pass or the profile is not used in outreach.
 2. **Source** — every factual claim carries a `KNOWN [url]` present in the evidence table or an `INFERRED` label with method and confidence; zero unlabeled claims.
 3. **Impression** — every source is one the stakeholder would consider legitimate if they saw the research log; no scraped private data, no inference from protected attributes.
 4. **Value** — the Approach section names a specific artifact or insight the stakeholder gains whether or not they respond.
-5. **Timing** — the Approach section cites a dated signal (event, filing, announcement) that justifies outreach now, and the account's Familiarity sub-score permits the action class.
+5. **Timing** — the Approach section cites a dated signal (event, filing, announcement) that justifies outreach now, and the approach names the Familiarity-class artifact the profile supports. Whether the account's Familiarity sub-score permits that artifact is the consuming command's check, not this gate's.
 
 ## Profile template
 
@@ -109,6 +110,7 @@ Function in deal: <User | Buyer | Sponsor | Enabler> (secondary: <…>)
 2. Decision Intelligence
    Public priorities: KNOWN [url] "…"
    Inferred priorities: INFERRED [method] … [confidence]
+   Decides: <what they approve alone> | Defers to: <who they need>   (labeled)
    Decision pattern: … | Communication style: … | Triggers: …
 3. Situational Context
    Recent: … | Now: … | Coming: …
@@ -116,12 +118,17 @@ Function in deal: <User | Buyer | Sponsor | Enabler> (secondary: <…>)
    History: … | Temperature: … | Content: … | Referrals: …
 5. Approach
    Lead with: … | Avoid: … | Proof points: … | Timing: <dated signal>
+   Message anchor: KNOWN [url] "<their own stated commitment>"
+   Seniority class: <Director | VP | C-suite | CEO/Board> | Channel: <warm-intro | email | linkedin | mail>
+   Artifact supported: <thesis | value provocation | Bridge | value proposition>
 
 Incentive / Constraint grid
    Monetary     incentive: …   constraint: …
    Time         incentive: …   constraint: …
    Risk         incentive: …   constraint: …
    Feasibility  incentive: …   constraint: …
+
+Sources: <every URL cited above, deduplicated>
 
 Gates: Specificity ☐ Source ☐ Impression ☐ Value ☐ Timing ☐   → <n>/5
 ```

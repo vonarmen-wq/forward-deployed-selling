@@ -1,14 +1,14 @@
 {
   "name": "forward-deployed-selling",
   "owner": {
-    "name": "Angel Armendariz",
-    "url": "https://angelarmendariz.com"
+    "name": "Caerus Capital Group, LLC",
+    "url": "https://forwarddeployedselling.com"
   },
   "plugins": [
     {
       "name": "forward-deployed-selling",
       "source": "./",
-      "description": "Operating doctrine for AI-era enterprise sales: twelve /fds commands, enforcing hooks, reviewing agents, typed records, evals."
+      "description": "Operating doctrine for AI-era enterprise sales: thirteen /fds commands, enforcing hooks, four agents, typed records, connector maps, evals."
     }
   ],
   "description": "Forward Deployed Selling: the enterprise sales doctrine for the AI era, as a Claude Code plugin."

@@ -1,17 +1,19 @@
 ---
 name: value-proposition-framing
-consumes: [ICP Record, Stakeholder Profile, Evidence Table]
-emits: Value Provocation
+consumes: [Thesis, Stakeholder Profile]
+emits: Value Proposition
 gate: 6/6 incl. FUD test
 ---
 
 # Value Proposition Framing Protocol
 
-Prerequisites: ICP Record, Stakeholder Profile (U/B/S/E and Incentive/Constraint Framework filled), Evidence Table.
+Prerequisites: the account's Thesis (its evidence table is the only citable set; its `value_at_stake` is the number both frames use) and the Stakeholder Profile for the one stakeholder addressed (U/B/S/E function and Incentive/Constraint grid filled).
 
 This protocol operationalizes the principle "Let Them See the Future". A value proposition is not a product description; it is a structured argument, grounded in the buyer's named incentive and constraints, that names the cost of inaction and the value of action in equal measure, both sourced. Generic value propositions fail because they overstate action, understate inaction, source neither, and read as marketing; the buyer disengages not because the product lacks merit but because the framing never showed the seller understood their situation. (Why both frames are required: `foundations-appendix.md`.)
 
-The agent runs this protocol before any Value Provocation, executive brief, business case, stakeholder-specific proposal section, or any output proposing that the buyer act. It does not run against an unqualified target or an incomplete Stakeholder Profile.
+The output is the **Value Proposition**: the dual-frame Cost of Inaction + Value of Action analysis for one stakeholder, tied to the Thesis version it was built from. It is distinct from the value provocation, which is the one-page delivery vehicle inside the Thesis (`references/thesis-protocol.md`). The agent runs this protocol before any executive brief, business case, stakeholder-specific proposal section, or any output proposing that the buyer act. It does not run against an unqualified target or an incomplete Stakeholder Profile.
+
+**Action class.** The Value Proposition is a Familiarity-class artifact under `canon.md` (Action class by Familiarity sub-score): it is permitted at Familiarity 2 or above. A pilot or business-case variant of the proposition (one that proposes a scoped engagement, a price, or a meeting) is a Value action and requires Familiarity 3; at Familiarity 2 the command surfaces the rule and emits the Familiarity-class form, which ends on the Thesis Bridge and asks for nothing.
 
 ## The dual-frame methodology
 
@@ -49,8 +51,9 @@ The canonical walkthrough (a CFO funding AI initiatives from cash flow under deb
 ## Output template
 
 ```
-## Value Provocation — <account>
+## Value Proposition — <account>
 Targeting: ICP <name> (qualified <date>) · Movement: <A/F/V + sub-scores> · Protocol: value-proposition-framing.md · Gate: <n/6> · Output Standards: <n/5>
+Thesis: v<n> (<date>) · Variant: <Familiarity-class | pilot/business-case (requires F3)>
 
 ### Stakeholder
 <name, title> · Function: <User | Buyer | Sponsor | Enabler>
@@ -74,7 +77,7 @@ Indicators 1–6: <none fired | indicator n fired → revised>
 
 ## Gate
 
-1. **Sourcing.** Every peer claim and numeric claim carries one label per canon.md. An unlabeled claim is a Red Light violation; revise before continuing.
+1. **Sourcing.** Every peer claim and numeric claim carries one label per canon.md. An unlabeled claim fails the Evidence standard and the artifact does not ship until it is labeled; a `KNOWN` label without a URL in the evidence table is the Red Light violation. Fabricated peer behavior is Red Light under Peer comparison sourcing above.
 2. **Anchoring.** Every value-of-action claim ties to the buyer's named public position. Generic upside fails; find the buyer's own anchor or drop the claim.
 3. **Constraint.** The framing operates within the buyer's named constraints (monetary, time, risk, feasibility). A proposition that asks the buyer to exceed budget, ignore covenants or accept publicly avoided risk fails; re-frame, or surface the constraint in the Bridge.
 4. **Symmetry.** Both frames are equally weighted and equally sourced. Heavy fear with light upside, or heavy upside with no cost, fails.

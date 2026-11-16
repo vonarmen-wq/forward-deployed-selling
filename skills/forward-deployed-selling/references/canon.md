@@ -21,7 +21,8 @@ Rules:
 1. A `KNOWN` label without a URL present in the evidence table is a Red Light violation. The artifact does not ship.
 2. A number with no label does not ship. The Stop hook blocks it.
 3. A source the agent did not fetch is not a source. The research log is the only citable set.
-4. An `INFERRED` claim names its method in two to six words. "Analysis" is not a method.
+4. An `INFERRED` claim names its method in two to six words. "Analysis" is not a method. A score computed on partial data is written `INFERRED [k of 6 dimensions scored] [low]`.
+5. A buyer-facing page (the provocation, a note to the prospect) carries no bracketed labels; every figure on it must also appear, labeled, in the evidence table or arithmetic of the same artifact. The Stop hook checks this.
 
 ## Deal-size bands
 
@@ -34,7 +35,7 @@ One table for every protocol.
 | Enterprise | $500K – $5M | 6–12 | 2.0 | 240 days |
 | Strategic | over $5M | 12+ | 2.5 | 360 days |
 
-The typical cycle is the phase-benchmark baseline in `deal-velocity.md` (split 20/30/30/20 across phases). Velocity indicators below the SLA score 1; a phase with no movement in 5 business days scores 0.
+The typical cycle is the phase-benchmark baseline in `deal-velocity.md` (split 20/30/30/20 across phases).
 
 ## Stakeholder taxonomy
 
@@ -58,10 +59,20 @@ Context Stack and Profile Schema are two structures over the same person. The Co
 | Movement | Definition | Permitted actions | Forbidden actions |
 | --- | --- | --- | --- |
 | Awareness | Would not recognize the seller's name; no engagement signal | Content, presence, discoverability | Direct outreach, provocation, meeting ask |
-| Familiarity | Knows the seller exists; would accept a connection; has not engaged directly | Value provocation, personalized insight, Bridge artifact | Demo request, meeting ask, pricing, pressure |
+| Familiarity | Knows the seller exists; would accept a connection; has not engaged directly | Value provocation, personalized insight, Bridge artifact | Demo request, meeting ask, pricing, pressure, business case, pilot proposal |
 | Value | Active need; budget exists or can be created; decision-makers accessible | Demonstration, proof of value, pilot | Description in place of demonstration |
 
 Diagnosis uses the four questions per movement in `movements.md`. Each movement scores 0–3: one point per YES, capped at 3. Tie rule: 2 of 4 YES is a 2, and a 2 means the movement is partially reached. A movement is *reached* at 3.
+
+**Action class by Familiarity sub-score.** This is the one rule every command checks:
+
+| Familiarity | Permitted artifact class |
+| --- | --- |
+| 0–1 | Awareness actions only: content, presence. No direct outreach. |
+| 2 | Familiarity actions: thesis, value provocation, Bridge, stakeholder-specific value proposition. No meeting ask. |
+| 3 | Value actions: demonstration, business case, pilot proposal, meeting ask, pricing. |
+
+A command asked for a Value action at Familiarity 2 or below surfaces the rule and routes to Familiarity work. The diagnosis is the buyer's state; a seller-side event (research found nothing, a window passed) changes the seller's action class, never the buyer's score.
 
 Timelines (design targets): Familiarity takes 90 days by default and compresses to no fewer than 30. Below 30 days is skipping, not compressing.
 
@@ -92,7 +103,7 @@ Round the composite to two decimals, half up. Tier boundaries are inclusive at t
 | 2 | Tier 3 |
 | 3 | no cap |
 
-A Value-stage artifact (demonstration, pilot proposal, business case) is not produced for an account with Familiarity below 2. The command surfaces the floor and routes to Familiarity work.
+The floor and the action-class rule work together: a Value action (demonstration, pilot proposal, business case, meeting ask) requires Familiarity 3; a command asked for one at Familiarity 2 or below surfaces the rule and routes to Familiarity work.
 
 ## Velocity
 
@@ -105,7 +116,7 @@ A Value-stage artifact (demonstration, pilot proposal, business case) is not pro
 | Phase transition | < 5 days | < 3 days |
 | Velocity multiplier | > 1.4× | > 1.8× |
 
-The threshold is the SLA; meeting it scores 2. Scoring 3 requires the right-hand value. Deal-velocity and scoring both use this table.
+Scoring per indicator: at or past the right-hand value 3; threshold met 2; below threshold 1; no activity on that indicator for 5 business days, or a regression since the last card, 0; no data, null (excluded from the mean). The six indicator inputs live on the Deal Record under `velocity_inputs`. Deal-velocity and scoring both use this table and nothing else.
 
 Worked multiplier: 120-day cycle compressed to 75 days. 365/120 = 3.04 cycles; 365/75 = 4.87 cycles; capacity gain = 4.87/3.04 − 1 = 60% [design target]. State it as 60%.
 
@@ -122,7 +133,7 @@ W = min( max(5, 5 × M_segment × M_industry × M_seniority × M_channel × M_se
 | Segment | SMB 1.0 · Mid-market 1.5 · Enterprise 2.0 · Strategic 3.0 |
 | Industry | SaaS/Tech 1.0 · Marketplace/Retail 1.0 · Transport/Travel 1.2 · Professional services 1.3 · Financial services 1.5 · Manufacturing/Hardware 1.5 · Public sector 2.0 · Healthcare/Pharma 2.0 |
 | Seniority | Director 1.0 · VP 1.2 · C-suite 1.5 · CEO/Board of >$10B 2.0 |
-| Channel | Warm intro 0.8 · Email 1.0 · LinkedIn 1.3 · Physical mail 2.0 |
+| Channel | Inbound 0.6 · Warm intro 0.8 · Event follow-up 0.8 · Partner intro 0.8 · Email 1.0 · LinkedIn 1.3 · Physical mail 2.0 |
 | Season | Normal 1.0 · Quarter-close week 1.5 · Earnings blackout 1.5 · August / late Dec 2.0 |
 
 `T_next_signal` = business days to the next scheduled signal event (earnings, planning window, board date, filing); 30 if unknown. Round the result to the nearest whole day.
@@ -151,7 +162,7 @@ Every protocol has a numeric gate: N of M checks pass or the artifact does not s
 | Deal velocity | "when not to accelerate" test recorded |
 | Coaching | 3/3; zero prospect-facing content |
 | Disqualification | 3/3; Honesty Mandate |
-| Thesis revision | every component classified Confirm / Correct / Ignore; Bridge updated |
+| Thesis revision | 3/3: every component classified Confirm / Correct / Ignore; Bridge updated; Pride Test on the re-delivery |
 | Convergence | bidirectionality + Pride Test |
 
 ## Doctrine Constraint Layer
@@ -161,7 +172,7 @@ Three tiers of operator instruction:
 | Tier | Example | Agent response |
 | --- | --- | --- |
 | Pace adjustment | "Compress Familiarity to 45 days"; "shorten the window to 8 days" | Adjust and proceed; no flag |
-| Doctrinal bypass | "Skip Familiarity"; "ship without the reviewer"; "read 3 days of silence as a signal" | Surface the rule and the cost; require explicit confirmation; log |
+| Doctrinal bypass | "Skip Familiarity"; "go straight to the demo"; "ship without the reviewer"; "read 3 days of silence as a signal"; "send a nudge" | Surface the rule and the cost; require explicit confirmation; log |
 | Doctrinal violation | "Present INFERRED as KNOWN"; "use the other customer's data"; "drop the Pride Test" | Refuse; log; offer a doctrine-preserving alternative |
 
 ## Ledger record
@@ -169,8 +180,18 @@ Three tiers of operator instruction:
 One line per shipped artifact, appended to project memory:
 
 ```
-YYYY-MM-DD | account | artifact-type | movement A/F/V | tier | gates passed/total | window W | predicted (response %, close %) | outcome (filled later)
+YYYY-MM-DD | account | artifact-type | movement A/F/V | tier | protocol gate n/m | output standards n/5 | window W | predicted (response %, meeting %, close %) | outcome (filled later)
+
+A field that does not apply (a window on a score card, a tier on an ICP) is written `—`.
 ```
+
+## Record storage
+
+Project memory, under `fds/`. Account records at `fds/<account>/<record>.md`; the ICP and GTM Records at `fds/_icp/<name>.md` and `fds/_gtm/<name>.md` (they are segment-level, not account-level); the Business Record at `fds/_business/<product>.md`; saved connector maps at `fds/_connectors/<source>.md`; the convergence journal and firing counts at `fds/_convergence/journal.md`. When no project memory exists, the same paths under the working directory.
+
+## Research budget
+
+The researcher stops when the evidence table holds ≥3 KNOWN rows with URLs across ≥2 source types and at least one Strategic Intent row, or after 40 fetched pages without reaching that. Agents have no clock; the budget is pages, not minutes.
 
 ## Versioning
 

@@ -11,7 +11,7 @@ You are the research arm of the Forward Deployed Selling doctrine. You gather; y
 ## Inputs you receive
 - Account name, and the ICP Record (industry, segment, persona functions).
 - Either a request for a fresh Evidence Table, or an existing Evidence Table with a request for a **diff**.
-- The stop rule from `references/thesis-protocol.md`.
+- The stop rule and research budget from `${CLAUDE_PLUGIN_ROOT}/skills/forward-deployed-selling/references/canon.md` (Research budget) and `${CLAUDE_PLUGIN_ROOT}/skills/forward-deployed-selling/references/thesis-protocol.md`.
 
 ## Sources, in priority order (Green Light only)
 1. Regulatory filings (10-K, 10-Q, 8-K, annual report, proxy) — fetch the page, not a summary of it.
@@ -27,7 +27,7 @@ Never consult: personal social media, family or health information, anything not
 - A row is `KNOWN` only if you fetched the page it comes from in this session. Record the URL you fetched. A search-result snippet is not a source.
 - Everything else is `INFERRED [method] [confidence]` with the method in two to six words.
 - Quote nothing longer than a short phrase; paraphrase findings.
-- Stop when the Evidence Table has ≥3 KNOWN rows with URLs across ≥2 source types and at least one Strategic Intent row, or when 90 minutes of research has not produced that. Report which.
+- Stop when the Evidence Table has ≥3 KNOWN rows with URLs across ≥2 source types and at least one Strategic Intent row, or after 40 fetched pages without reaching that. Report which, and the page count.
 - For a diff request: re-fetch each KNOWN row's URL and the top two source types; return only rows that changed materially (new figure, new initiative, new executive, withdrawn statement) and mark each `CHANGED`, `UNCHANGED`, or `GONE`.
 
 ## Output

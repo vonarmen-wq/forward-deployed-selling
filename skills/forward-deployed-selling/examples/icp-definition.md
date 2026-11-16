@@ -11,7 +11,7 @@ Generated 2026-11-03. Demonstrates `capabilities/icp-definition-protocol.md`: th
 
 Lattice Revenue Systems sells Lattice Pipeline, a revenue-intelligence platform that ingests CRM activity, call transcripts and email metadata to produce per-deal velocity scoring, wait-state detection and forecast-accuracy diagnostics. Annual contract value $80K–$240K by seat count and usage tier. SaaS deployment; six-week median implementation; certified connectors for the two dominant CRM platforms in the segment.
 
-Stated as the product with its price posture, not as "our solution." This is the input the protocol requires before any axis is qualified.
+The protocol requires the product stated this way, with its price posture, before any axis is qualified.
 
 ### Market
 
@@ -28,7 +28,7 @@ Sizing logic, each step labeled:
 
 Addressable subset: 840 companies. Deal band: **Mid-market** ($50K–$500K ACV), typical committee 3–5, minimum FDRI 1.5 (canon).
 
-Disqualification signals checked: the segment is not "every company that wants better forecasting." It excludes companies below the ARR floor (cycle complexity too low for the product to show value), above the ceiling (mature revenue-intelligence stacks already installed), without an outbound motion (different product fit), and with CRM data the platform cannot ingest. Budget authority is demonstrated: the three incumbents in the segment transact at comparable price points (KNOWN [https://cloudindex.harborvale.example/2026-sales-tech-pricing-survey]).
+Disqualification signals checked. The segment excludes companies below the ARR floor (cycle complexity too low for the product to show value), above the ceiling (mature revenue-intelligence stacks already installed), without an outbound motion (different product fit), and with CRM data the platform cannot ingest. Budget authority is demonstrated: the three incumbents in the segment transact at comparable price points (KNOWN [https://cloudindex.harborvale.example/2026-sales-tech-pricing-survey]).
 
 ### Persona
 
@@ -57,7 +57,7 @@ Secondary: targeted outbound to named accounts anchored on a value provocation p
 
 Tertiary: long-form essays on revenue operating-system design, indexed for search and AI-assistant retrieval; portfolio-level Awareness investment on a 6–12 month horizon.
 
-Saturation: three incumbents (Cairnstone, Fathom Revenue, Oriel Analytics) reach this persona through the same primary and secondary channels (KNOWN [https://cloudindex.harborvale.example/2026-sales-tech-pricing-survey#vendors]). Differentiation runs on the messaging anchor and value-provocation specificity, not on channel choice. Share of voice through the tertiary channel is reachable at an editorial cadence of two essays a month.
+Saturation: three incumbents (Cairnstone, Fathom Revenue, Oriel Analytics) reach this persona through the same primary and secondary channels (KNOWN [https://cloudindex.harborvale.example/2026-sales-tech-pricing-survey#vendors]). Differentiation runs on the messaging anchor and value-provocation specificity; channel choice is shared with the incumbents. Share of voice through the tertiary channel is reachable at an editorial cadence of two essays a month.
 
 Disqualification signals checked: touchpoint cost fits the Mid-market band; the seller has the content and seller capacity the mix requires; incumbents saturate but do not dominate the persona's attention.
 

@@ -1,6 +1,6 @@
 # Thesis
 
-Emitted by `/fds:thesis`; revised by `/fds:revise`. Required by `/fds:frame`.
+Emitted by `/fds:thesis`; revised by `/fds:revise`. Required by `/fds:frame`. The record contains the one-page value provocation (`provocation`); `/fds:frame` emits a separate Value Proposition record tied to this record's `version`.
 
 ```
 thesis:
@@ -13,7 +13,7 @@ thesis:
     gate:               n/5
     output_standards:   n/5  (from doctrine-reviewer)
     window_W:           business days, with the multiplier arithmetic shown once
-    delivered_on:       YYYY-MM-DD | null
+    delivered_on:       YYYY-MM-DD | null   (ship date unless the seller states otherwise; the mail connector may correct it)
   evidence_table:       [ {category, label: KNOWN|INFERRED, source_or_method, finding, confidence?} ]
   components:
     situation:          what is happening, from the evidence

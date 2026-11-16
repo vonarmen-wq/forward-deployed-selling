@@ -5,57 +5,60 @@ What lives in the repository, how it loads, and the one rule that keeps it consi
 ## Layout
 
 ```
-.claude-plugin/plugin.json        Manifest. Version lives here and nowhere else.
+.claude-plugin/plugin.json        Manifest. The version number lives here and nowhere else.
 
 skills/forward-deployed-selling/
-  SKILL.md                        The router. Loaded whenever the skill triggers. Architecture,
-                                  decision hierarchy, command table, constraint layers, Output
-                                  Standards. Under 500 lines; it points, it does not restate.
+  SKILL.md                        The router, loaded whenever the skill triggers. It holds the
+                                  architecture, the decision hierarchy, the command table, the
+                                  constraint layers and the Output Standards, and points to the
+                                  files that hold the rules.
   references/canon.md             Every definition, label, band, threshold, formula and gate.
-                                  Wins any disagreement with any other file.
-  schemas/                        Typed records each protocol consumes and emits.
-  connectors/                     Field maps from CRM, mail, calendar and file stores to those records.
-  capabilities/                   Targeting and operational protocols (ICP, GTM, framing,
-                                  coaching, disqualification, revision, convergence).
-  references/                     Operational protocols (thesis, profiles, movements, velocity,
-                                  scoring).
+                                  It wins any disagreement with any other file.
+  schemas/                        The typed records each protocol consumes and emits.
+  connectors/                     Field maps from CRM, mail, calendar, file and knowledge sources
+                                  into those records, plus a discovery procedure for any source
+                                  without a map.
+  capabilities/                   Targeting and operational protocols: ICP, GTM, value
+                                  proposition, coaching, disqualification, revision, convergence.
+  references/                     Operational protocols: thesis, profiles, movements, velocity,
+                                  scoring.
   examples/                       One synthetic worked example per artifact type, plus
-                                  getting-started.md. Read before producing the same kind.
-  foundations.md                  Why the doctrine is shaped this way. Essays. Not for artifact
-  foundations-appendix.md         generation.
+                                  getting-started.md, which addresses the reader directly.
+  foundations.md                  The essays on why the doctrine is shaped this way. They are
+  foundations-appendix.md         read for teaching and writing, not for artifact generation.
 
-commands/                         Twelve /fds:* commands. Each loads canon + one protocol,
-                                  checks prerequisites, runs the gate, writes the ledger.
-agents/                           account-context (memory + connectors + web → Context Stack),
+commands/                         Thirteen /fds:* commands. Each loads canon plus one protocol,
+                                  checks prerequisites, runs the gate and writes the ledger.
+agents/                           account-context (memory, connectors and web → Context Stack),
                                   account-researcher (fetch-only), scorer (compute-only),
                                   doctrine-reviewer (grades what it did not write).
-hooks/                            Stop: blocks unlabeled numerals in artifacts.
-                                  UserPromptSubmit: injects the Doctrine Constraint Layer.
+hooks/                            A Stop hook that blocks unlabeled figures in artifacts and a
+                                  UserPromptSubmit hook that injects the Doctrine Constraint Layer.
 evals/                            One case per enforced behavior; `claude plugin eval` runs them.
 CHANGELOG.md · KNOWN_ISSUES.md · CONTRIBUTING.md · LICENSE · NOTICE
 ```
 
 ## How it loads
 
-Token cost scales with the task. The router loads on trigger. A command loads `canon.md`, its one protocol, its schema and its matching example. Agents run in their own context and return a structured block. Nothing else enters the conversation.
+Token cost scales with the task. The router loads when the skill triggers. A command then loads `canon.md`, its one protocol, its schema and its matching example, and nothing more. Each agent runs in its own context and returns a structured block, so the researcher's fetched pages and the reviewer's reasoning stay out of the seller's conversation.
 
 ## The consistency rule
 
-A term is defined once, in `canon.md`. A protocol that needs a definition links to it. A protocol that restates a definition is a bug; file it. This is what stopped v0.5's drift (three label formats, two deal-size tables, two cycle-compression figures), and it is the only rule contributors have to internalize.
+A term is defined once, in `canon.md`, and every protocol that needs it links there. A protocol that restates a definition is a defect to file, because restatement is how v0.5 drifted into three label formats, two deal-size tables and two cycle-compression figures. This is the one rule a contributor has to carry.
 
 ## Enforcement, by mechanism
 
 | Commitment | Held by |
 | --- | --- |
-| No unsourced numbers | Stop hook + reviewer |
-| No fabricated sources | researcher returns only fetched URLs |
-| Pride Test and Output Standards | reviewer agent |
-| Targeting and movement before operation | command prerequisite checks against schemas |
-| Compress, don't skip | Movement Floor on the Familiarity sub-score |
+| No unsourced figures | Stop hook, then the reviewer agent |
+| No fabricated sources | The researcher returns only pages it fetched |
+| Pride Test and Output Standards | The reviewer agent, which did not write the artifact |
+| Targeting and diagnosis before any buyer-facing output | Each command checks the schemas for the records it consumes |
+| Value actions only once Familiarity is reached | The action-class rule in canon, checked by every command |
 | Doctrine Constraint Layer | UserPromptSubmit hook |
-| Audit trail | ledger line per artifact, in project memory |
-| Private context stays private | Interaction layer from connectors or the seller only; connector reads are read-only and account-scoped |
+| Private context stays private | The Interaction layer comes from connectors or the seller only; connector reads are read-only and scoped to one account |
+| Audit trail | One ledger line per artifact, in project memory |
 
 ## Voice
 
-Roles, not personalities: the agent, the seller, the machine. Declarative sentences; rules, not suggestions; labeled numbers. The README is the one exception, because it addresses the person deciding whether to install.
+Protocols, schemas and examples name roles (the agent, the seller, the machine) and state rules in declarative sentences with labeled figures. The README and `examples/getting-started.md` address the reader as "you", because each is read by the person deciding whether to install or what to type first.

@@ -1,13 +1,13 @@
 ---
 name: agent-convergence-protocol
-consumes: [ICP Record, Deal Record, Stakeholder Profile, Score Card, Velocity Profile, Coaching Artifact]
+consumes: [Score Card, Velocity Profile, Business Record]
 emits: Mobilization Request
 gate: bidirectionality + Pride Test
 ---
 
 # Agent Convergence Protocol
 
-Prerequisites: ICP Record, Deal Record, Stakeholder Profile per engaged buyer-side contact, Score Card, Velocity Profile, Coaching Artifact where one exists; plus visibility into the seller organization's available capability (engineers on the bench, customer success managers who can take a reference call, product managers in the geography).
+Prerequisites: Score Card, Velocity Profile, and the Business Record, whose `team.convergence_pool` names the roles that can be pulled into a deal and their SLA. A Coaching Artifact is read when one exists and its capability-gap diagnosis is cited as the trigger.
 
 Convergence is the orchestration layer that mobilizes the organization's full capability around a customer's specific problem: engineering, product, customer success, finance, each at the deal stage where it has leverage. Without an executable protocol, sellers either under-mobilize (deal runs on seller capability alone) or over-rotate (everyone in every deal, goodwill exhausted). (The essay on why convergence matters is in `foundations.md`; the operational framing in `foundations-appendix.md`.)
 
@@ -32,9 +32,9 @@ Decision table. The agent runs it against the deal state and surfaces matches to
 | Roadmap is a decision factor | Evaluation includes long-term strategic fit | "Where are you headed in 18+ months", or strategic-evaluation framing | Product Management: roadmap alignment |
 | Deal structure is a differentiator | Standard terms not winning | Competitive evaluation underway AND the named alternative is structurally cheaper | Finance: phased investment, risk sharing, capex/opex shift |
 | Content gap | No seller content addresses the prospect's specific technical or industry challenge | Stated problem returns no internal content match | Engineering or Product: commission targeted content |
-| Implementation risk is high | Environment where standard deployment assumptions may not hold | Stated integration concern, OR a known-complex stack | Customer Success + Engineering: feasibility analysis |
+| Implementation risk is high | Environment where standard deployment assumptions may not hold | Stated integration concern, OR a stack with 3 or more integration points named in the Deal Record | Customer Success + Engineering: feasibility analysis |
 
-Thresholds are conservative. One firing is a candidate the agent surfaces; 2 or more firings of the same trigger across the deal cycle is a clear signal.
+Thresholds are conservative. One firing is a candidate the agent surfaces; 2 or more firings of the same trigger across the deal cycle is a clear signal. Firing counts per account and trigger are stored in `fds/_convergence/journal.md` per `canon.md` (Record storage).
 
 ## Stakeholder-to-function map by movement
 
@@ -82,7 +82,7 @@ Bad: "Can someone from engineering join a customer call?" Good: "Meridian Softwa
 
 ## Contribution tracking
 
-On completion the agent appends to the Revenue Contribution Journal:
+On completion the agent appends to the Revenue Contribution Journal at `fds/_convergence/journal.md`:
 
 ```
 DATE | CONTRIBUTOR (name, function, role) | ACCOUNT | TRIGGER | ACTION (specific, bounded) | IMPACT (labeled) | TIME INVESTED (hours)

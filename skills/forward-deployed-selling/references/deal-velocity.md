@@ -1,13 +1,13 @@
 ---
 name: deal-velocity
-consumes: [Deal Record, Movement Diagnosis]
+consumes: [Deal Record]
 emits: Velocity Profile
 gate: "when not to accelerate" test recorded
 ---
 
 # Deal Velocity Protocol
 
-Prerequisites: `canon.md` (Velocity table, Deal-size bands, worked multiplier); the Deal Record with phase dates; the current Movement Diagnosis.
+Prerequisites: `canon.md` (Velocity table, Deal-size bands with typical cycle, worked multiplier); the Deal Record with phase dates, wait states and `velocity_inputs`. The Deal Record's `movement` reference supplies the sub-scores printed on the profile; no separate Movement Diagnosis is required.
 
 Velocity is not compression. Compression removes waste from an existing process; velocity redesigns the process so waste never accumulates. The machine treats velocity as a structural advantage, not an optimization project — the argument is in `foundations.md`. Thresholds, the velocity multiplier and the 120→75-day worked example live in `canon.md`; this file does not restate them.
 
@@ -28,20 +28,20 @@ Map any enterprise deal and the same pattern appears: real work occupies a fract
 
 ### Detection signals
 
-More than 5 business days without substantive activity on an active opportunity; more than 2 coordination exchanges for one meeting; more than 2 redline cycles; stakeholder questions that should have been pre-answered; requests for information already in the deal record; any phase exceeding 150% of its phase benchmark. On detection the machine diagnoses the cause and recommends action within 24 hours.
+The friction signals are the list under "Make it easy to say yes" in `SKILL.md`; this file adds two phase-level signals: more than 5 business days without substantive activity on an active opportunity, and any phase exceeding 150% of its phase benchmark. On detection the machine diagnoses the cause and recommends action within 24 hours.
 
 ### Phase benchmark
 
-The phase benchmark is the deal-size band's typical cycle divided across four phases [design target]:
+The phase benchmark is the deal-size band's typical cycle from `canon.md` (SMB 60, Mid-market 120, Enterprise 240, Strategic 360 days) split 20/30/30/20 across four phases [design target]:
 
-| Phase | Share of cycle | On a 120-day cycle |
-| --- | --- | --- |
-| Awareness → Familiarity | 20% | 24 days |
-| Familiarity → Value | 30% | 36 days |
-| Value → Proposal | 30% | 36 days |
-| Proposal → Close | 20% | 24 days |
+| Phase | Share | SMB (60) | Mid-market (120) | Enterprise (240) | Strategic (360) |
+| --- | --- | --- | --- | --- | --- |
+| Awareness → Familiarity | 20% | 12 | 24 | 48 | 72 |
+| Familiarity → Value | 30% | 18 | 36 | 72 | 108 |
+| Value → Proposal | 30% | 18 | 36 | 72 | 108 |
+| Proposal → Close | 20% | 12 | 24 | 48 | 72 |
 
-`canon.md` does not yet carry a cycle column on the Deal-size bands table; until it does, 120 days (canon's worked-multiplier baseline) is the default cycle for every band, and the operator may set a band-specific cycle as a pace adjustment.
+The band comes from the Deal Record's `segment`; the cycle is written to `velocity_inputs.cycle_benchmark_days`. The operator may set a different cycle for an account as a pace adjustment.
 
 ## Parallel workstream architecture
 
@@ -116,7 +116,7 @@ Readiness: **Green** — pre-built assets, streamlined approvals, cross-trained 
 
 ## The learning loop
 
-Phases that repeatedly create wait states get a systemic fix, not a deal-level one. Internal bottlenecks become organizational advocacy. Workstreams that produce the best drafts refine the 80/20 split. Compression attempts that backfired update the "when not to accelerate" criteria. The machine feeds each learning across all accounts.
+Phases that create wait states 2 or more times across the portfolio get a systemic fix, not a deal-level one. Internal bottlenecks become organizational advocacy. Workstreams that produce the best drafts refine the 80/20 split. Compression attempts that backfired update the "when not to accelerate" criteria. The machine feeds each learning across all accounts.
 
 ## Velocity Profile
 

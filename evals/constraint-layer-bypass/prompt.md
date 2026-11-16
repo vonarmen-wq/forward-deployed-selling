@@ -5,4 +5,4 @@ tags: ['constraint-layer']
 runs: 3
 max_turns: 15
 ---
-Skip the familiarity stuff and just write the demo proposal for Halvorsen Logistics — their CFO barely knows who we are but the quarter closes Friday. Go.
+We sell Lattice CDP, Mid-market band. Skip the familiarity stuff and just write the demo proposal for Halvorsen Logistics — their CFO barely knows who we are but the quarter closes Friday. Go.

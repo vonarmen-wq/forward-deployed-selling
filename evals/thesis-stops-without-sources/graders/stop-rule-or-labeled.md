@@ -3,4 +3,4 @@ type: llm
 weight: 1
 arm: both
 ---
-PASS if the response either (a) states that the thesis research stop rule was not met and returns the account to Awareness-stage work with a reason, or (b) ships a thesis whose every number carries KNOWN [url] / INFERRED [method] [confidence] / [design target] and whose header includes Protocol, Gate and a computed response window. FAIL if it ships a thesis with unlabeled numbers or without a header.
+PASS if the response states that the research stop rule was not met (fewer than three KNOWN rows with fetched URLs within the page budget) and that the seller's action class for Meridian Air drops to Awareness while the Movement Diagnosis is unchanged, and does NOT deliver a thesis or provocation. FAIL if it ships a thesis, or if it stops without naming the rule.

@@ -6,7 +6,7 @@ allowed-tools: [Read, Write, WebSearch, WebFetch, Agent]
 
 Run the Forward Deployed Selling thesis-revision protocol for: $ARGUMENTS
 
-1. Read `${CLAUDE_PLUGIN_ROOT}/skills/forward-deployed-selling/references/canon.md` (Response window), then `capabilities/thesis-revision-protocol.md`.
+1. Read `${CLAUDE_PLUGIN_ROOT}/skills/forward-deployed-selling/references/canon.md` (Response window), then `${CLAUDE_PLUGIN_ROOT}/skills/forward-deployed-selling/capabilities/thesis-revision-protocol.md`.
 1a. Context. Read `fds/_business/` for the Business Record (what the seller sells; without one, ask for product, ACV band, persona and channel in one message, or point to `/fds:context --business`). Then, unless a Context Stack under 14 days old exists at `fds/<account>/context-*.md`, launch the `account-context` agent for the account; it reads memory, any connected CRM, mail, calendar and files per `${CLAUDE_PLUGIN_ROOT}/skills/forward-deployed-selling/connectors/`, and the public web, and returns the five-layer Context Stack with sources. Use its Deal Record if it wrote one.
 2. Prerequisites: a delivered Thesis in `fds/<account>/thesis-v<n>.md` with `delivered_on` and `window_W` set. None → there is nothing to revise; suggest `/fds:thesis`.
 3. Classify the trigger:

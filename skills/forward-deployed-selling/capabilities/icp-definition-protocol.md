@@ -1,13 +1,13 @@
 ---
 name: icp-definition-protocol
-consumes: []
+consumes: [Business Record]
 emits: ICP Record
 gate: 5/5
 ---
 
 # ICP Definition Protocol
 
-Prerequisites: none. Input is the product or service, stated explicitly.
+Prerequisites: the Business Record (`schemas/business-record.md`): the product, its pricing posture, proof and buyers so far, stated by the seller once and reused. The agent does not interview the seller for what the record already holds.
 
 The Ideal Customer Profile is the prerequisite for every other protocol: a thesis against the wrong market, a provocation for the wrong persona, or outreach on the wrong channel produces output the seller cannot use. The agent re-qualifies rather than reusing a prior ICP Record when the operator names a market, persona or channel it does not match, the product changes, a competitive shift changes the winning segment, or the record is older than one quarter.
 
@@ -69,19 +69,29 @@ Targeting: ICP <name> (qualified <date>) · Movement: n/a · Protocol: icp-defin
 <named product, features, pricing posture>
 
 ### Market
-Segment: <...>
+Segment: <...> · Industry: <canon.md industry class>
+Geography: <...>
+Size signal: <the observable that defines "in market": revenue band, headcount, system in use>
 Addressable subset: <N> — KNOWN [url] | INFERRED [method] [confidence]
+Target list: <the 10% of the addressable subset pursued first>  [design target]
+Exclusions: <what looks in-market but is not, with the signal that reveals it>
 Deal band: <SMB | Mid-market | Enterprise | Strategic>
 
 ### Persona
-Role family: <...> · Function: <User | Buyer | Sponsor | Enabler>
+Role family: <...> · Buying function: <Buyer by default; the function whose authority closes>
+Functions: User <title> · Buyer <title> · Sponsor <title> · Enabler <title>   (the title that usually fills each)
 Authority verification: <evidence, labeled>
-Incentive: <...> · Constraint: <monetary | time | risk | feasibility>
+Incentive: <the one thing the Buyer is measured on that this product moves>
+Constraints: monetary <...> · time <...> · risk <...> · feasibility <...>
 Decision pattern: <...>
 
 ### Channel
-Primary: <...> · Cost per touchpoint: <...> · Expected response rate: <... labeled>
+Primary: <warm-intro | email | linkedin | event | partner | inbound> · Cost per touchpoint: <...> · Expected response rate: <... labeled>
+Why: <the evidence that this channel reaches this persona>
 Saturation: <...>
+
+### Disqualifiers
+3–5 signals that end pursuit early, each observable at account level.
 
 ### Coherence sentence
 "We are selling <product> to <persona> in <market> via <channel>."

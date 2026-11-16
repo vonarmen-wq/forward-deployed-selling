@@ -1,13 +1,13 @@
 ---
 name: disqualification-protocol
-consumes: [ICP Record, Stakeholder Profile, Thesis, Score Card, Coaching Artifact, Evidence Table]
+consumes: [Deal Record, Score Card]
 emits: Disqualification Memo
 gate: 3/3; Honesty Mandate
 ---
 
 # Disqualification Protocol
 
-Prerequisites: ICP Record, Stakeholder Profile (U/B/S/E filled), Thesis or Value Provocation with explicit prospect engagement, Score Card, Coaching Artifact where one exists, Evidence Table.
+Prerequisites: Deal Record (stakeholders by function, artifacts shipped and their reception, competitive alternatives) and Score Card. The Thesis, Stakeholder Profiles and any Coaching Artifact are read when present and cited by name; their absence is surfaced, not substituted.
 
 The Honesty Mandate says: when value demonstration reveals the prospect is not a fit, the machine says so. This protocol codifies the how. Disqualification is a first-class output, a written artifact addressed to the prospect that names the misfit specifically and recommends what would serve them, because doctrine that says hard things to prospects is the doctrine prospects trust. (Why: `foundations-appendix.md`.)
 
@@ -21,7 +21,7 @@ Any one is sufficient to begin; the artifact construction validates before the a
 |---|---|---|
 | 1 | Product–situation mismatch | The Thesis Hypothesis cannot connect the product to the prospect's named priority without stretching language past the Pride Test. |
 | 2 | Constraint–solution mismatch | The Constraint gate in `value-proposition-framing.md` fails on 2 or more attempts; no framing exists that does not ask the prospect to violate a named constraint. |
-| 3 | Movement mismatch, persistent | Two dormant cycles per canon.md's response-window rule, or Movement score plateaued or declined across 3 or more refresh cycles after a Coaching recovery plan has run. |
+| 3 | Movement mismatch, 3 or more occurrences | Two dormant cycles per canon.md's response-window rule, or Movement score plateaued or declined across 3 or more refresh cycles after a Coaching recovery plan has run. |
 | 4 | Better-fit alternative exists | A named competitor, category or internal build produces a better outcome for the prospect. The strongest brand-building form. |
 | 5 | Timing mismatch, structural | The ICP Coherence check passes for a future state of the prospect (6–18 months out: adoption maturity, regulatory window, capacity, readiness) and fails for the current state. |
 
@@ -83,7 +83,7 @@ The cost of a wrong disqualification (lost legitimate deal plus damaged relation
 
 1. **Honesty.** No reason depends on protecting commercial interest at the prospect's expense: no self-interested steering away from a competitor, no withheld alternative to preserve a re-pitch, no false reason to soften.
 2. **Better-fit naming.** Where a better alternative exists, it is named. The one exception, that no good solution exists, is stated explicitly.
-3. **Pride Test.** The prospect, shown every signal, conclusion and recommendation, recognizes work that is honest, respectful and useful. Failure here is worse than on a value provocation, because disqualification commits to no upside; only the work's integrity justifies delivery.
+3. **Pride Test.** The prospect, shown every signal, conclusion and recommendation, recognizes work that is honest, respectful and useful. Failure here is worse than on a value proposition, because disqualification commits to no upside; only the work's integrity justifies delivery.
 
 Pass count: 3/3, under the Honesty Mandate. Every claim is labeled per canon.md; the trigger that fired is named in the header; operator instructions to soften the reasoning are surfaced per the Doctrine Constraint Layer. A failed check is surfaced to the seller before delivery.
 

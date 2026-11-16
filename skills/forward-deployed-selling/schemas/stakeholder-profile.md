@@ -19,6 +19,7 @@ profile:
     message_anchor:     their own stated commitment the thesis attaches to (KNOWN, URL)
     seniority_class:    Director | VP | C-suite | CEO/Board     (response-window multiplier)
     channel:            warm-intro | email | linkedin | mail     (response-window multiplier)
+    artifact:           thesis | value provocation | Bridge | value proposition   (the Familiarity-class artifact this profile supports; gate 5)
   incentive_constraint:
     monetary:   { incentive: , constraint: }
     time:       { incentive: , constraint: }

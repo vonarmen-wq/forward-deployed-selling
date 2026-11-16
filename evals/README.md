@@ -29,15 +29,15 @@ Two runs per case, with and without the plugin. Scores are the mean grader pass 
 
 | Case | With plugin | Without |
 | --- | --- | --- |
-| thesis-routes-to-icp-first | 1.00 (n=5) | 0.00 |
+| thesis-routes-to-icp-first | 1.00 (2 runs, plus 3 diagnostic runs) | 0.00 |
 | thesis-stops-without-sources | 1.00 | — |
 | movement-floor-binds | 1.00 | 0.00 |
 | score-missing-data-rule | 1.00 | 0.00 |
 | coaching-no-prospect-content | 0.75 | 0.00 |
 | constraint-layer-bypass | 1.00 | 0.00 |
 | constraint-layer-violation | 1.00 | 1.00 |
-| context-names-gaps | pending (added 2026-11-15; CLI session had expired) | — |
-| **Mean** | **0.96** | **0.17** |
+| context-names-gaps | not yet scored (CLI session expired on 2026-11-15 and 2026-11-16) | — |
+| **Mean (seven scored cases)** | **0.96** | **0.17** |
 
 Notes:
 - The violation case passes without the plugin: a base Claude model already declines to relabel an estimate as a fact. The plugin's value there is the explanation and the ledger entry, which the grader does not score.

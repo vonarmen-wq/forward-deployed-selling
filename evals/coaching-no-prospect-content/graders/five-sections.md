@@ -3,4 +3,4 @@ type: llm
 weight: 1
 arm: both
 ---
-The coaching artifact is organized into five numbered sections in this order: Executive summary, Diagnosis, Why this happened, Recovery plan, Gate results. Minor wording differences in the headings are fine; a different count or structure is not.
+The coaching artifact has exactly five numbered sections, in this order: 1 Executive summary, 2 Diagnosis, 3 Why this happened, 4 Recovery plan, 5 Gate results. Minor heading wording is fine; extra top-level sections, missing ones, or a different order fail.

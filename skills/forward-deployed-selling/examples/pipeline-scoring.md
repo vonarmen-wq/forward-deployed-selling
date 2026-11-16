@@ -8,9 +8,9 @@ Generated 2026-11-03. Demonstrates `references/scoring.md` against canon: Moveme
 Conventions used on every card:
 
 - Movement sub-scores: one point per YES on the four diagnostic questions in `references/movements.md`, capped at 3. Tie rule: 2 of 4 is a 2.
-- FDRI dimensions: the 0–3 descriptors in `references/scoring.md`. A dimension with no evidence is excluded from the mean, not zeroed. Fewer than four scored dimensions makes FDRI INFERRED [low].
-- Velocity indicators: canon's six-row table. Meeting the threshold scores 2; meeting the right-hand value scores 3; missing the threshold scores 1; absent, regressed or undefined activity scores 0. No data excludes the indicator.
-- Composite = 0.4 × (Movement ÷ 9) + 0.35 × (FDRI ÷ 3) + 0.25 × (Velocity ÷ 3), rounded half up to two decimals.
+- FDRI dimensions: the 0–3 descriptors in `references/scoring.md`. A dimension with no evidence is excluded from the mean. Fewer than four scored dimensions makes FDRI INFERRED [low].
+- Velocity indicators: canon's six-row table. At or past the right-hand value scores 3; threshold met scores 2; below threshold scores 1; no activity on that indicator for 5 business days, or a regression since the last card, scores 0. No data excludes the indicator.
+- Composite = 0.4 × (Movement ÷ 9) + 0.35 × (FDRI ÷ 3) + 0.25 × (Velocity ÷ 3), rounded half up to two decimals. Means are rounded to two decimals before division; the quotients printed below are computed from the rounded means.
 - Movement Floor: Familiarity 0–1 caps at Tier 4; Familiarity 2 caps at Tier 3; Familiarity 3 no cap.
 
 ---
@@ -49,7 +49,7 @@ FDRI = (1 + 2 + 2 + 2 + 1) ÷ 5 = 8 ÷ 5 = **1.60**. Five of six scored; confide
 | Active-to-elapsed ratio | 31 active days of 71 = 44% | > 40% / > 50% | 2 |
 | Open wait states | 2 (CISO questionnaire unowned on the prospect side; CFO follow-up unscheduled) | < 3 / 0 | 2 |
 | Internal response time | 19 h median on prospect questions | < 48 h / < 24 h | 3 |
-| Parallel coverage | 3 of 4 downstream workstreams started (business case, reference architecture, security pre-work; procurement not started) = 75%, at the boundary, not above it | > 60% / > 75% | 2 |
+| Parallel coverage | 3 of 4 downstream workstreams started (business case, reference architecture, security pre-work; procurement not started) = 75%, at the threshold boundary | > 60% / > 75% | 2 |
 | Phase transition | 4 days, benchmark-to-business-case | < 5 / < 3 | 2 |
 | Velocity multiplier | no data (no prior closed cycle in this segment) | > 1.4× / > 1.8× | excluded |
 
@@ -106,8 +106,8 @@ FDRI = (1 + 1 + 0 + 2 + 1 + 0) ÷ 6 = 5 ÷ 6 = **0.83**. Six of six scored. Band
 | Active-to-elapsed ratio | 6 active days of 118 = 5% | > 40% / > 50% | 1 |
 | Open wait states | 1 (reorganization, no owner, no date) | < 3 / 0 | 2 |
 | Internal response time | no data (no prospect questions since July) | < 48 h / < 24 h | excluded |
-| Parallel coverage | 0 of 4 started = 0% | > 60% / > 75% | 0 |
-| Phase transition | none since 2026-07-14 demo; 94 days, regressed | < 5 / < 3 | 0 |
+| Parallel coverage | 0 of 4 started = 0%; below threshold would score 1, but no activity on this indicator since the 2026-07-14 demo, well past 5 business days, so 0 | > 60% / > 75% | 0 |
+| Phase transition | none since 2026-07-14 demo; 94 days, regressed since the last card | < 5 / < 3 | 0 |
 | Velocity multiplier | no data | > 1.4× / > 1.8× | excluded |
 
 Velocity = (1 + 2 + 0 + 0) ÷ 4 = 3 ÷ 4 = **0.75**. Four indicators scored. Band: Stalled (0.0–1.0).
@@ -116,9 +116,9 @@ Velocity = (1 + 2 + 0 + 0) ÷ 4 = 3 ÷ 4 = **0.75**. Four indicators scored. Ban
 
 ```
 0.4 × (3 ÷ 9)     = 0.4 × 0.3333 = 0.1333
-0.35 × (0.83 ÷ 3) = 0.35 × 0.2778 = 0.0972
+0.35 × (0.83 ÷ 3) = 0.35 × 0.2767 = 0.0968
 0.25 × (0.75 ÷ 3) = 0.25 × 0.2500 = 0.0625
-sum                = 0.2931 → 0.29
+sum                = 0.2926 → 0.29
 ```
 
 Composite **0.29 → Tier 4** (0.20–0.39, return to Familiarity work). Movement Floor: Familiarity 1 caps at Tier 4. The cap and the composite agree; the floor is recorded as applied even though it does not change the result.
@@ -173,18 +173,18 @@ Velocity = (3 + 3 + 2 + 2 + 3) ÷ 5 = 13 ÷ 5 = **2.60**. Band: Exceptional (2.5
 
 ```
 0.4 × (6 ÷ 9)     = 0.4 × 0.6667 = 0.2667
-0.35 × (2.33 ÷ 3) = 0.35 × 0.7778 = 0.2722
+0.35 × (2.33 ÷ 3) = 0.35 × 0.7767 = 0.2718
 0.25 × (2.60 ÷ 3) = 0.25 × 0.8667 = 0.2167
-sum                = 0.7556 → 0.76
+sum                = 0.7552 → 0.76
 ```
 
 Composite **0.76 → Tier 2 by the formula. Movement Floor binds: Familiarity 1 caps at Tier 4. Final tier: 4.**
 
-This is the case the floor exists for. Seller capability (FDRI 2.33) and deal speed (Velocity 2.60) lift the composite into Tier 2 on an account that has taken one call and received nothing of value from the seller. The arithmetic says invest; the doctrine says the buyer has not reached Familiarity and will resist a pilot regardless of how good the seller is. Per canon, no Value-stage artifact (pilot proposal, business case) is produced for this account until Familiarity reaches 2, and the command surfaces the floor and routes to Familiarity work.
+This is the case the floor exists for. Seller capability (FDRI 2.33) and deal speed (Velocity 2.60) lift the composite into Tier 2 on an account that has taken one call and received nothing of value from the seller. The arithmetic says invest; the floor says the buyer has not reached Familiarity and will resist a pilot regardless of how good the seller is. Per canon, a pilot proposal, business case or demo requires Familiarity 3; at Familiarity 2 the account qualifies for a thesis, a value provocation and a Bridge, and the command surfaces the floor and routes to Familiarity work.
 
 Risk pattern: **High Velocity, Low Familiarity** (moving fast without a trust foundation; risk of collapse at late-stage scrutiny). Recommended action from the table: slow down, invest in the relationship.
 
-Named next action: deliver the spoilage comparison the VP did not ask for, with cited sources, through `/fds:thesis` as a value provocation with a Bridge and no pilot language. Expected effect: Familiarity 1 → 2 inside one window (W for Mid-market × Manufacturing/Hardware × VP × Email × Normal = 5 × 1.5 × 1.5 × 1.2 × 1.0 × 1.0 = 13.5 → 14 business days; T_next_signal is the Q1 capital plan at 41 business days; W = 14). Re-score at Familiarity 2: the cap moves to Tier 3 and the pilot conversation the VP raised becomes permissible at Familiarity 3.
+Named next action: deliver the spoilage comparison the VP did not ask for, with cited sources, through `/fds:thesis` as a value provocation with a Bridge and no pilot language. Expected effect: Familiarity 1 → 2 inside one window. Northwind is a logistics operator, so the industry cell is Transport/Travel: W for Mid-market × Transport/Travel × VP × Email × Normal = 5 × 1.5 × 1.2 × 1.2 × 1.0 × 1.0 = 10.8 → 11 business days. T_next_signal is the Q1 capital plan at 41 business days, so W = 11. Re-score at Familiarity 2: the cap moves to Tier 3. The pilot conversation the VP raised becomes permissible at Familiarity 3.
 
 ---
 
@@ -198,20 +198,34 @@ Named next action: deliver the spoilage comparison the VP did not ask for, with 
 
 Pipeline $5.02M; Tier 1–2 value $3.2M (64%).
 
-Allocation this week: Ashgrove takes the seller's pursuit time (CFO profile, convergence request for plant data). Northwind takes two hours for one unasked value delivery and then waits for its window. Keelhaven takes zero seller time and a monitoring rule.
+Allocation this week:
+
+| Account | Seller time | Action | Owner and date |
+| --- | --- | --- | --- |
+| Ashgrove Industrial Holdings | Pursuit time, most of the week | CFO Context Stack and profile; convergence request for plant data | Seller runs `/fds:profile` by 2026-11-05 and `/fds:converge` by 2026-11-07 |
+| Northwind Cold Chain | Two hours | One unasked value delivery (spoilage comparison, cited); then wait out the 11-day window | Seller ships the provocation by 2026-11-05; window closes 2026-11-19 |
+| Keelhaven Marine Services | None | Monitoring rule on the reorganization; re-diagnose on a leadership signal | Signal watch set by 2026-11-04; no outreach |
 
 ## Gate report
 
-Scoring gate (canon): Movement Floor applied on all three cards and binding on Northwind; missing-data rule applied (Ashgrove 5/6 FDRI, 5/6 Velocity; Keelhaven 4/6 Velocity; Northwind 5/6 Velocity), no excluded dimension zeroed; rounding stated as half up to two decimals on every composite. Pass.
+Scoring gate (canon). Movement Floor applied on all three cards and binding on Northwind. Missing-data rule applied: Ashgrove 5/6 FDRI and 5/6 Velocity, Keelhaven 4/6 Velocity, Northwind 5/6 Velocity, every excluded dimension left out of its mean. Rounding stated as half up to two decimals on every composite. Pass.
 
-Scoring quality checks (`references/scoring.md`): Evidence (every sub-score cites a signal); Freshness (all evidence inside 30 days except Keelhaven's July demo, flagged as the reason for its Velocity reading); Consistency (Keelhaven's three low readings agree; Northwind's high FDRI and Velocity against low Familiarity is the incoherence the floor resolves); Calibration (no ledger history yet for this cell; noted); Honesty (scores assigned from CRM and artifact-log evidence, not seller-reported stage).
+Scoring quality checks (`references/scoring.md`):
+
+- Evidence: every sub-score cites a signal.
+- Freshness: all evidence inside 30 days except Keelhaven's July demo, flagged as the reason for its Velocity reading.
+- Consistency: Keelhaven's three low readings agree; Northwind's high FDRI and Velocity against low Familiarity is the incoherence the floor resolves.
+- Calibration: no ledger history yet for this cell; noted.
+- Honesty: every score is assigned from CRM and artifact-log evidence; the seller-reported stage was not used.
 
 Output Standards: Specificity pass; Evidence pass; Friction pass (one named next action per account); Velocity pass; Pride pass. 5/5.
 
-Ledger lines:
+Ledger lines (canon shape; a window on a score card and a prediction on a score card are written `—`):
 
 ```
-2026-11-03 | Ashgrove Industrial Holdings | score | 3/3/2 | 2 | 3/3 | n/a | n/a | 
-2026-11-03 | Keelhaven Marine Services    | score | 2/1/0 | 4 | 3/3 | n/a | n/a | 
-2026-11-03 | Northwind Cold Chain         | score | 3/1/2 | 4 | 3/3 | 14  | n/a | 
+2026-11-03 | Ashgrove Industrial Holdings | score | 3/3/2 | 2 | protocol gate 3/3 | output standards 5/5 | window — | predicted — | outcome —
+2026-11-03 | Keelhaven Marine Services    | score | 2/1/0 | 4 | protocol gate 3/3 | output standards 5/5 | window — | predicted — | outcome —
+2026-11-03 | Northwind Cold Chain         | score | 3/1/2 | 4 | protocol gate 3/3 | output standards 5/5 | window — | predicted — | outcome —
 ```
+
+The 11-day Northwind window is stored on its Thesis record by `/fds:thesis` when the provocation ships; it does not belong on the score card line.

@@ -2,34 +2,35 @@
 
 ## Status
 
-0.6.0. Angel Armendariz is sole maintainer; changes flow through him. Issues and discussion are welcome. Pull requests are reviewed, and a PR that adds or changes a protocol must come with an eval case that fails before the change and passes after.
+The current release is 0.6.0. Angel Armendariz is the sole maintainer and every change flows through him. Issues and discussion are welcome, and pull requests are reviewed; a pull request that adds or changes a protocol must come with an eval case that fails before the change and passes after it.
 
-## The rules that keep the repo coherent
+## The rules that keep the repository coherent
 
-1. **Define once.** Any label, band, threshold, formula or gate lives in `skills/forward-deployed-selling/references/canon.md`. Protocols link; they do not restate.
-2. **Declare what you consume and emit.** Every protocol's frontmatter names its input and output records from `schemas/`.
-3. **Numeric gates.** Every protocol ends with a `## Gate` section with a pass count.
-4. **No roadmap in the doctrine.** Version talk goes in `CHANGELOG.md` and `KNOWN_ISSUES.md`, nowhere else.
-5. **Synthetic examples.** Invented companies, `.example` URLs, every number labeled.
-6. **Voice.** Declarative, role-based, labeled. Read `ARCHITECTURE.md` → Voice.
+1. Any label, band, threshold, formula or gate is defined once, in `skills/forward-deployed-selling/references/canon.md`, and every protocol links to that definition rather than restating it.
+2. Every protocol's frontmatter names the records it consumes and the record it emits, using the names in `schemas/`.
+3. Every protocol ends with a `## Gate` section whose checks are numbered and whose pass count matches the Gates table in canon.
+4. Version talk belongs in `CHANGELOG.md` and `KNOWN_ISSUES.md`; a protocol file never mentions a release.
+5. Examples use invented companies, `.example` URLs and labeled figures, and each one passes the gates it claims to pass.
+6. Protocols and examples use the declarative, role-based register described in `ARCHITECTURE.md` under Voice.
 
 ## Testing
 
 ```
 claude plugin validate . --strict
-claude plugin eval .
+claude plugin eval . --trust-plugin --runs 2 \
+  --allow-tools Skill Read Glob Grep Write WebSearch WebFetch Agent --no-publish
 ```
 
-`evals/` holds one case per enforced behavior. Add a case under `evals/<kebab-name>/` with a `prompt.md` and at least one grader in `graders/`. The layout is the one `claude plugin eval` reads.
+The tool grant is required: without `Skill` and `Read` the plugin cannot load its own files during an eval. Add a case under `evals/<kebab-name>/` with a `prompt.md` and at least one grader in `graders/`; `evals/README.md` lists the existing cases and the first results.
 
 ## Versioning
 
-Semver in `.claude-plugin/plugin.json`. Patch for wording and example fixes; minor for a new or changed protocol, command, agent or hook; major when canon changes a definition that existing ledgers depend on.
+Semver, in `.claude-plugin/plugin.json`. A patch release changes wording or examples; a minor release adds or changes a protocol, command, agent or hook; a major release changes a canon definition that existing ledgers depend on.
 
 ## License and attribution
 
-Apache 2.0 (`LICENSE`, `NOTICE`). The "Forward Deployed Selling" name and "FDS Certified" mark are protected; commercial use of the methodology name requires separate licensing per [forwarddeployedselling.com/license](https://forwarddeployedselling.com/license).
+Copyright 2026 Caerus Capital Group, LLC, under Apache 2.0 (`LICENSE`, `NOTICE`). Contributions are licensed to Caerus Capital Group, LLC on the same terms. The "Forward Deployed Selling" name and the "FDS Certified" mark are held by Caerus Capital Group, LLC, and commercial use of the methodology name requires a separate license from [forwarddeployedselling.com/license](https://forwarddeployedselling.com/license).
 
 ## Reporting issues
 
-File an issue for: a protocol contradicting `canon.md`; an example that no longer matches its protocol; an eval that is flaky; a design target that field experience contradicts (include your N).
+File an issue when a protocol contradicts `canon.md`, when an example no longer matches its protocol, when an eval is flaky, or when field experience contradicts a design target (include your N).

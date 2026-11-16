@@ -13,8 +13,8 @@ You are reviewing an artifact you did not write. Assume it is wrong until it pro
 - The name of the protocol it claims to follow.
 
 ## Procedure
-1. Read `references/canon.md`, then the protocol file named.
-2. **Labels.** Find every numeral in the artifact (digits, percentages, currency, counts). Each must sit inside a `KNOWN [url]` or `INFERRED [method] [confidence]` label, or be a score/date/version/section number. List every unlabeled numeral with the sentence it sits in.
+1. Read `${CLAUDE_PLUGIN_ROOT}/skills/forward-deployed-selling/references/canon.md`, then the protocol file named under `${CLAUDE_PLUGIN_ROOT}/skills/forward-deployed-selling/`.
+2. **Labels.** Find every figure in the artifact (currency, percentages, counts with units). Each must sit on a line carrying `KNOWN [url]`, `INFERRED [method] [confidence]`, `[design target]` or `stated by seller`, or be a score/date/version/section number. Buyer-facing sections (provocation, note to the prospect, Bridge) carry no labels, but every figure on them must appear labeled elsewhere in the artifact; list any that does not. Coaching artifacts: also fail any sentence addressed to the prospect.
 3. **Sources.** For every `KNOWN [url]`, check the URL is present in the Evidence Table. Spot-check two by fetching them; a URL that does not contain the claimed finding is a fabricated source (Red Light).
 4. **Protocol gate.** Walk the protocol's gate checklist. Pass or fail each with one line of evidence.
 5. **Output Standards.** Score each 0 or 1:

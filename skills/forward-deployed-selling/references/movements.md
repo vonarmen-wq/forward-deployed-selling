@@ -1,13 +1,13 @@
 ---
 name: movements
-consumes: [Stakeholder Profile, Deal Record]
+consumes: [ICP Record, Context Stack]
 emits: Movement Diagnosis
 gate: signals cited for every YES; tie rule applied
 ---
 
 # Movement Diagnosis Protocol
 
-Prerequisites: `canon.md` (Movements, timelines, Movement Floor); the account's Stakeholder Profiles and Deal Record.
+Prerequisites: `canon.md` (Movements, timelines, Movement Floor); the qualified ICP Record; the account's Context Stack (the Interaction and Timing layers supply the signals cited below).
 
 The three movements — Awareness, Familiarity, Value — are defined in `canon.md` with their permitted and forbidden actions. The machine diagnoses the movement before recommending any action.
 
@@ -15,7 +15,7 @@ The three movements — Awareness, Familiarity, Value — are defined in `canon.
 
 **Movements compress; they do not skip.**
 
-A prospect without Awareness ignores Familiarity-stage outreach; a prospect without Familiarity resists Value-stage engagement regardless of fit. Familiarity takes 90 days by default and compresses to no fewer than 30 (`canon.md`). The emotional progression behind the rule is in `foundations.md`.
+A prospect without Awareness ignores Familiarity-stage outreach; a prospect without Familiarity resists Value-stage engagement regardless of fit. The Familiarity timeline and its compression limit are in `canon.md` (Movements, timelines). The emotional progression behind the rule is in `foundations.md`.
 
 ## Diagnostic questions
 
@@ -44,21 +44,21 @@ Four questions per movement. Each YES scores one point, capped at 3, and cites i
 
 ## Reading the sub-scores
 
-The action class turns on Familiarity.
+The action class turns on the Familiarity sub-score alone. The table in `canon.md` (Action class by Familiarity sub-score) is the rule; restated here for reading, not as a second definition:
 
 | Familiarity | Permitted action class | Forbidden |
 | --- | --- | --- |
-| 0–1 | Awareness actions only: content, presence, discoverability. No direct outreach. | Value provocation, meeting ask, demo |
-| 2 | Familiarity actions: value provocation, personalized insight, Bridge artifact | Demo request, meeting ask, pricing, pressure |
-| 3 | Value actions when Value is reached at 3; otherwise continue Familiarity actions | Description in place of demonstration |
+| 0–1 | Awareness actions only: content, presence, discoverability. No direct outreach. | Thesis, value provocation, Bridge, meeting ask, demo |
+| 2 | Familiarity actions: thesis, value provocation, Bridge artifact, stakeholder-specific value proposition | Demo request, meeting ask, pricing, pressure, business case, pilot proposal |
+| 3 | Value actions: demonstration, business case, pilot proposal, meeting ask, pricing | Description in place of demonstration |
 
-Value provocations are a Familiarity action, not an Awareness action. An account at Familiarity 0–1 has not earned direct outreach. Value 2–3 against Familiarity 0–1 is need without trust — a competitive evaluation the seller enters at a disadvantage — and the Movement Floor in `canon.md` caps that account at Tier 4 until Familiarity reaches 2.
+A Familiarity sub-score of 3 permits Value actions whatever the Value sub-score reads; the Value sub-score then tells the seller which Value action fits (a demonstration against Value 1 is proof offered before need is confirmed, and the diagnosis says so). Value provocations are a Familiarity action, not an Awareness action. An account at Familiarity 0–1 has not earned direct outreach. Value 2–3 against Familiarity 0–1 is need without trust — a competitive evaluation the seller enters at a disadvantage — and the Movement Floor in `canon.md` caps that account at Tier 4 until Familiarity reaches 2.
 
 ## Action protocols
 
 **Awareness.** Be discoverable when the prospect begins exploring a problem the seller solves: domain-expertise content, discoverability through AI assistants and search, presence at events and with analysts, signal monitoring. Portfolio-level work, one to two hours per account monthly. Metrics: reach, brand search, share of voice, inbound from target accounts.
 
-**Familiarity.** Build trust through value delivery without asking for anything. Default 90-day plan [design target]: days 1–30, a personalized insight on their latest earnings or announcement and a peer reference offered; days 31–60, industry research, a custom segment benchmark, an introduction to a peer or analyst; days 61–90, a brief on a regulatory or competitive development and updated analysis since day 1. Compression to 30 days keeps every item; below 30 is skipping. If the seller is asking for something, the seller is selling. Metrics: response rate, engagement depth, temperature change, time-to-opportunity.
+**Familiarity.** Build trust through value delivery without asking for anything. Default plan across the canon timeline [design target]: first third, a personalized insight on their latest earnings or announcement and a peer reference offered; second third, industry research, a custom segment benchmark, an introduction to a peer or analyst; final third, a brief on a regulatory or competitive development and updated analysis since day 1. Compression to the canon minimum keeps every item; below it is skipping. If the seller is asking for something, the seller is selling. Metrics: response rate, engagement depth, temperature change, time-to-opportunity.
 
 **Value.** Demonstrate outcomes before the contract: proof of value on the prospect's data or close proxies, pilots with measurable results, business cases in their own numbers. Metrics: POV completion, POV-to-proposal conversion, POV-to-close time.
 

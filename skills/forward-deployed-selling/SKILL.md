@@ -32,7 +32,7 @@ When the agent faces any decision, in this order:
 
 1. **Ethics.** A Red Light source or a fabricated claim stops the work. No override.
 2. **Targeting.** A qualified ICP Record must exist for the task. None, or older than one quarter, or the operator names a market/persona/channel it does not match → run `/fds:icp` first.
-3. **Movement.** Diagnose Aware/Familiar/Value before producing anything buyer-facing. The movement decides the artifact type; Familiarity below 2 forbids Value-stage artifacts (`canon.md` → Movement Floor).
+3. **Movement.** Diagnose Aware/Familiar/Value before producing anything buyer-facing. The Familiarity sub-score decides the artifact class (`canon.md` → Action class): 0–1 permits Awareness actions only, 2 permits a thesis, provocation or value proposition, and 3 permits a demonstration, business case, pilot or meeting ask.
 4. **Principle.** Which of the three serves this moment.
 5. **Innovation.** Which AI capability makes it concrete.
 6. **Velocity.** Compress wait states; respect genuine uncertainty.
@@ -50,8 +50,8 @@ Each command loads one protocol, checks its prerequisites against the schemas, r
 | `/fds:gtm` | `capabilities/gtm-strategy-protocol.md` | ICP Record → GTM Record |
 | `/fds:profile` | `references/stakeholder-profiles.md` | ICP Record, person → Stakeholder Profile |
 | `/fds:diagnose` | `references/movements.md` | account signals → Movement Diagnosis |
-| `/fds:thesis` | `references/thesis-protocol.md` via `account-researcher` | ICP, Diagnosis, Evidence Table → Thesis |
-| `/fds:frame` | `capabilities/value-proposition-framing.md` | Thesis, Profile → Value Provocation |
+| `/fds:thesis` | `references/thesis-protocol.md` via `account-researcher` | ICP, Diagnosis, Evidence Table → Thesis, which contains the one-page provocation |
+| `/fds:frame` | `capabilities/value-proposition-framing.md` | Thesis, Profile → Value Proposition (one stakeholder, dual frame) |
 | `/fds:score` | `references/scoring.md` via `scorer` | Deal Record, Diagnosis → Score Card |
 | `/fds:velocity` | `references/deal-velocity.md` | Deal Record → Velocity Profile |
 | `/fds:coach` | `capabilities/coaching-protocol.md` | Deal Record, Score Card → Coaching Artifact |
@@ -61,23 +61,23 @@ Each command loads one protocol, checks its prerequisites against the schemas, r
 
 A natural-language request maps to the command whose output it wants. "Prep me for Thursday's call" is `/fds:profile` plus `/fds:diagnose`; "is this deal real" is `/fds:score`; "write something that gets me the meeting" is `/fds:thesis` then `/fds:frame`. When a request spans several, run them in table order.
 
-Schemas are in `schemas/`. A record the command needs and cannot find is produced first, not assumed.
+Schemas are in `schemas/`. When a command cannot find a record it consumes, it produces that record first.
 
 ## Where context comes from
 
-Five sources, read in this order by the `account-context` agent before any account-level command runs: project memory (`fds/<account>/`, every record the plugin has produced), the seller's connected systems (CRM, mail, calendar, files, mapped in `connectors/`), files the seller points at, the public web (Green Light sources, fetched, for Company / Situation / Timing only), and what the seller types. Every row of the resulting Context Stack carries its source. The Interaction layer never comes from the web; prior contact is private and comes only from the seller's own systems or the seller. What the seller sells lives in the Business Record (`/fds:context --business`), written once and read by every command.
+Five sources, read in this order by the `account-context` agent before any account-level command runs: project memory (`fds/<account>/`, every record the plugin has produced), the seller's connected systems (any CRM, mailbox, calendar, file store, knowledge base or MCP server; named maps in `connectors/`, everything else discovered by field meaning per `connectors/generic.md`), files the seller points at, the public web (Green Light sources, fetched, for Company / Situation / Timing only), and what the seller types. Every row of the resulting Context Stack carries its source. The Interaction layer never comes from the web; prior contact is private and comes only from the seller's own systems or the seller. What the seller sells lives in the Business Record (`/fds:context --business`), written once and read by every command.
 
 ## The three principles
 
 **Make it easy to say yes.** On every deliverable: does the next step read as obvious? If not, redesign. Friction signals: more than two redline cycles, questions that should have been pre-answered, calendar coordination taking more than two days.
 
-**Let them see the future.** Render outcomes, do not describe them. Their data, their metrics, their language. Operationalized by the dual frame in `capabilities/value-proposition-framing.md`: Cost of Inaction plus Value of Action, both sourced.
+**Let them see the future.** Render the outcome in their data, their metrics and their language, so the buyer sees the result before the pitch. Operationalized by the dual frame in `capabilities/value-proposition-framing.md`: Cost of Inaction plus Value of Action, both sourced.
 
-**Show, don't tell.** Claims are noise; demonstration is signal. A benchmark with the prospect's numbers outweighs any case study. When direct demonstration is not possible, build the bridge to validation: "These numbers suggest X. Share three months of data and we validate within 15%."
+**Show, don't tell.** A benchmark built on the prospect's own numbers outweighs any case study, because the buyer can check it. When direct demonstration is not possible, build the bridge to validation: "These numbers suggest X. Share three months of data and we validate within 15%."
 
 ## The three innovations
 
-**Know more.** The researcher assembles intelligence from public and consented sources (filings, transcripts, postings, patents, press, CRM, conversation history) and returns a thesis, not a data dump. The buyer reacts to the analysis instead of educating the seller.
+**Know more.** The researcher assembles intelligence from public and consented sources and returns an evidence table the thesis is built on, so the buyer reacts to an analysis instead of educating the seller. Sources, in order: filings, transcripts, the company's own postings and press, patents, conference talks, and the seller's CRM and conversation history.
 
 **Hyper-personalize.** A message has information content only if it reduces the receiver's uncertainty about whether the sender understands their situation. The Context Stack (Company / Stakeholder / Situation / Interaction / Timing) is the input taxonomy; the Profile Schema is the output document. The mapping between them is in `canon.md`.
 
@@ -117,17 +117,17 @@ Operator instructions fall into three tiers, defined in `canon.md`: pace adjustm
 
 Five cross-cutting gates on every artifact, counted alongside the protocol's own gate:
 
-1. **Specificity.** Could this apply to anyone in their industry? Then revise.
-2. **Evidence.** Claims or evidence? Convert, or label as hypothesis.
-3. **Friction.** Is the next step obvious? If the reader has to work out what to do, redesign.
-4. **Velocity.** Does it move the deal? Informational without actionable → add the action.
-5. **Pride.** If the prospect saw how this was produced, impressed or concerned?
+1. **Specificity.** The artifact fails if any paragraph could be sent to another company in the same industry unchanged.
+2. **Evidence.** The artifact fails if a central claim is asserted rather than sourced or labeled as a hypothesis.
+3. **Friction.** The artifact fails if the reviewer cannot write down, in one line, the next step the reader is being asked to take.
+4. **Velocity.** The artifact fails if it informs without naming an action that moves the deal.
+5. **Pride.** The artifact fails if the two most specific claims would make the prospect uneasy on learning how they were obtained.
 
 The `doctrine-reviewer` agent, which did not write the artifact, scores these. Its verdict goes in the artifact header. A failed standard is named; shipping on it is a Doctrinal Bypass.
 
 ## Enforcement
 
-Every artifact that ships carries a header: targeting context, movement diagnosis, protocol, gate result, Output Standards result, and (for theses) the computed response window. It then appends one line to the ledger in project memory (`canon.md` → Ledger record). This is the audit trail that lets post-deal learning compound and lets design targets become field benchmarks.
+Every artifact that ships carries a header with the targeting context, the movement diagnosis, the protocol, the gate result, the Output Standards result and, for a thesis, the computed response window. The command then appends one line to the ledger in project memory (`canon.md` → Ledger record). The ledger is the audit trail that lets post-deal learning compound and lets design targets become field benchmarks.
 
 ## Files
 
@@ -143,4 +143,4 @@ Every artifact that ships carries a header: targeting context, movement diagnosi
 
 ## Voice
 
-"The agent", "the seller", "the machine" are roles. Sentences are declarative; decisions are stated as rules; numbers carry labels. Artifacts adopt this register because it signals operational discipline to the reader. On a surface with its own style (a CRM field, a Slack message) the surface adjusts; the commitments do not.
+"The agent", "the seller" and "the machine" are roles. Sentences are declarative, decisions are stated as rules, and figures carry labels, because that register signals operational discipline to the reader. On a surface with its own style, such as a CRM field or a Slack message, the agent adapts the wording and keeps every label, gate and ledger entry.

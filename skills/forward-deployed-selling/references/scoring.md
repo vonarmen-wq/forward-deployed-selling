@@ -1,13 +1,13 @@
 ---
 name: scoring
-consumes: [Movement Diagnosis, Deal Record, Velocity Profile]
+consumes: [Deal Record, Movement Diagnosis]
 emits: Score Card
 gate: floor applied; missing-data rule applied; rounding stated
 ---
 
 # Opportunity Scoring Protocol
 
-Prerequisites: `canon.md` (Scoring formula, tier table, Movement Floor, Velocity table, Deal-size bands); a current Movement Diagnosis; `examples/pipeline-scoring.md` as the reference implementation.
+Prerequisites: `canon.md` (Scoring formula, tier table, Movement Floor, Velocity table, Deal-size bands); the Deal Record (its `velocity_inputs` block supplies the six indicators); a current Movement Diagnosis; `examples/pipeline-scoring.md` as the reference implementation. A Velocity Profile, where one exists, is read for its wait-state map but is not required to score.
 
 The machine scores opportunities to prioritize action, allocate resources and forecast. Traditional pipeline scoring asks "how likely is this deal to close?" — a question that produces binary thinking and rewards inflated confidence. The machine asks three questions instead: where is the account in its journey (Movement), is the selling organization executing at the level the deal requires (FDRI), and what is the deal's speed and trajectory (Velocity). The three combine into a composite that recommends the action that raises it.
 
@@ -50,7 +50,7 @@ Minimum FDRI by deal-size band is in `canon.md`. Below the minimum, the machine 
 
 ## Dimension 3: Velocity (0–3)
 
-The mean of the six indicators in canon's Velocity table, each scored 0–3: meeting the threshold scores 2; the right-hand value scores 3; below threshold scores 1; a stalled indicator (no movement in 5 business days) scores 0. The Velocity Profile (`deal-velocity.md`) supplies the inputs.
+The mean of the six indicators in canon's Velocity table, each scored per the sentence under that table ("Scoring per indicator"), which this file does not restate. The inputs are the Deal Record's `velocity_inputs`; the Velocity Profile (`deal-velocity.md`) maps the same six to wait states and is read when present.
 
 | Velocity | Reading | Action |
 | --- | --- | --- |
@@ -68,9 +68,9 @@ Formula, rounding (two decimals, half up), tier boundaries and the Movement Floo
 Composite = 0.4 × (Movement/9) + 0.35 × (FDRI/3) + 0.25 × (Velocity/3)
 ```
 
-**Missing data.** A dimension without data is excluded from its mean, not zeroed. Fewer than four scored FDRI dimensions makes FDRI `INFERRED [low]`, and the Score Card says so.
+**Missing data.** A dimension without data is excluded from its mean, not zeroed. Fewer than four scored FDRI dimensions makes FDRI `INFERRED [k of 6 dimensions scored] [low]`, and the Score Card says so.
 
-**Movement Floor.** Keyed on the Familiarity sub-score: Familiarity 0–1 caps the tier at 4; Familiarity 2 caps at 3; Familiarity 3 is uncapped. The floor enforces compress-don't-skip at the math level: an organization with high FDRI and high Velocity can produce a Tier 2 composite against an account that has not earned direct outreach, and the doctrine says that account resists Value-stage action regardless of seller capability. No Value-stage artifact is produced for an account with Familiarity below 2.
+**Movement Floor.** Keyed on the Familiarity sub-score: Familiarity 0–1 caps the tier at 4; Familiarity 2 caps at 3; Familiarity 3 is uncapped. The floor enforces compress-don't-skip at the math level: an organization with high FDRI and high Velocity can produce a Tier 2 composite against an account that has not earned direct outreach, and the doctrine says that account resists Value-stage action regardless of seller capability. Per canon's action-class rule, a Value action requires Familiarity 3; at Familiarity 2 the seller may deliver a thesis, a value provocation or a value proposition.
 
 ### Worked example
 
@@ -86,7 +86,7 @@ Composite         = 0.7700 → 0.77 (two decimals, half up)
 
 Uncapped tier: **Tier 2** (0.60–0.79, advance with named next action). Familiarity sub-score is 1, so the floor caps at **Tier 4** (return to Familiarity work). The Score Card records Tier 4 with the cap stated.
 
-Why: the buyer has active need (Value 2) and the seller is capable and moving fast, but the buyer would not take this seller's call. Pursuing now produces a competitive evaluation the seller enters as a stranger. The composite reads "advance"; the floor reads the Familiarity gap and routes to Familiarity work — the 90-day plan in `movements.md`, compressible to 30.
+Why: the buyer has active need (Value 2) and the seller is capable and moving fast, but the buyer would not take this seller's call. Pursuing now produces a competitive evaluation the seller enters as a stranger. The composite reads "advance"; the floor reads the Familiarity gap and routes to Familiarity work — the Familiarity plan in `movements.md`.
 
 ## Risk patterns
 
@@ -128,7 +128,15 @@ New deal: full scoring. Material signal: re-score Movement and Velocity. Weekly:
 
 ## Gates
 
-The protocol gate: floor applied, missing-data rule applied, rounding stated. Before any score enters a forecast or prioritization decision, the machine also checks:
+The protocol gate is canon's three checks, each recorded on the card:
+
+1. **Floor applied** — the Movement Floor is keyed on the Familiarity sub-score and the binding tier is stated with the cap.
+2. **Missing-data rule applied** — every null dimension or indicator is listed and excluded from its mean; FDRI with fewer than four scored dimensions is labeled `INFERRED [k of 6 dimensions scored] [low]`.
+3. **Rounding stated** — the composite arithmetic is shown and the two-decimal half-up rounding is written out.
+
+## Checks the reviewer runs
+
+Before any score enters a forecast or prioritization decision, the reviewer also checks the following. A failed check is named on the card; it does not block shipping on its own.
 
 1. **Evidence** — every sub-score cites observable evidence; none rests on seller optimism.
 2. **Freshness** — evidence older than 30 days is flagged for refresh.
@@ -140,11 +148,13 @@ The protocol gate: floor applied, missing-data rule applied, rounding stated. Be
 
 ```
 SCORE CARD — <account>                         Date: YYYY-MM-DD
-Movement:   A<n>/F<n>/V<n> = <sum>/9   (diagnosis dated …)
-FDRI:       <x.x> over <k>/6 dimensions   [INFERRED low if k < 4]
-Velocity:   <x.x> over <k>/6 indicators
-Composite:  0.4×(<sum>/9) + 0.35×(<FDRI>/3) + 0.25×(<Vel>/3) = <x.xxxx> → <x.xx> (half up)
+Movement:   A<n>/F<n>/V<n> = <sum>/9   (diagnosis dated …; signals cited per point)
+FDRI:       <x.xx> over <k>/6 dimensions   label: computed | INFERRED [k of 6 dimensions scored] [low]
+Velocity:   <x.xx> over <k>/6 indicators   (inputs: Deal Record velocity_inputs; nulls listed)
+Composite:  0.4×(<sum>/9) + 0.35×(<FDRI>/3) + 0.25×(<Vel>/3) = <x.xxxx> → <x.xx> (two decimals, half up)
 Tier:       uncapped <n> · floor (Familiarity <f>) <cap or none> · recorded <n>
-Risk patterns: …
-Next action: …
+Risk patterns: <pattern> — <one-line reading>   (one per match, from the table above; "none" if none)
+Next actions:  1–3, each tied to the lowest sub-score
+Prediction:    close <n>%  [design target, from the tier's forecast band]
+Gate:          floor applied ☐ · missing-data rule applied ☐ · rounding stated ☐   → <n>/3
 ```

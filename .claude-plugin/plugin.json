@@ -4,11 +4,18 @@
   "description": "Operating doctrine for AI-era enterprise sales. Thirteen /fds commands, four agents (context, research, scoring, review), two hooks, typed records, and evals. Use when an agent works on accounts, deals, outreach, coaching, or pipeline.",
   "version": "0.6.0",
   "author": {
-    "name": "Angel Armendariz",
-    "url": "https://angelarmendariz.com"
+    "name": "Angel Armendariz (Caerus Capital Group, LLC)",
+    "url": "https://forwarddeployedselling.com"
   },
   "homepage": "https://forwarddeployedselling.com",
   "repository": "https://github.com/vonarmen-wq/forward-deployed-selling",
   "license": "Apache-2.0",
-  "keywords": ["sales", "enterprise-sales", "account-research", "pipeline", "coaching", "go-to-market"]
+  "keywords": [
+    "sales",
+    "enterprise-sales",
+    "account-research",
+    "pipeline",
+    "coaching",
+    "go-to-market"
+  ]
 }

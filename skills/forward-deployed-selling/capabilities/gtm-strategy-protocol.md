@@ -1,13 +1,13 @@
 ---
 name: gtm-strategy-protocol
-consumes: [ICP Record]
+consumes: [Business Record, ICP Record]
 emits: GTM Record
 gate: 5/5
 ---
 
 # GTM Strategy Protocol
 
-Prerequisites: ICP Record (gate 5/5).
+Prerequisites: Business Record (the product and its pricing posture) and ICP Record (gate 5/5).
 
 `GTM = f(ICP, product/service)`. Both inputs are required and the dependency runs one direction: the ICP defines the GTM, never the reverse. The agent derives or verifies a GTM after ICP qualification and before any operational protocol (movement diagnosis, thesis, deal velocity, scoring). It re-derives when the ICP Record changes, the product changes (new SKU, repositioning, pricing), a competitive shift requires repositioning, or one quarter of benchmark data warrants it.
 
@@ -39,7 +39,7 @@ The one argument that, if the persona believed it, would make them take the next
 
 Named per motion, not by category:
 
-- Outbound new-logo: Thesis, Value Provocation, peer comparison, dual-frame value proposition (`value-proposition-framing.md`)
+- Outbound new-logo: Thesis with its value provocation (`references/thesis-protocol.md`), Value Proposition (`value-proposition-framing.md`)
 - Inbound qualification: discovery-validation framework, fit assessment, business case template
 - Expansion: usage analysis, expansion thesis, account-level ROI documentation
 - Renewal: realized-value summary, risk register, renewal proposal
