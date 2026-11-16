@@ -48,10 +48,11 @@ Connect any CRM, mailbox, calendar, file store or knowledge base and the context
 **Claude Code** (commands, agents and hooks all run):
 
 ```
-/plugin install forward-deployed-selling --marketplace vonarmen-wq/forward-deployed-selling
+/plugin marketplace add vonarmen-wq/forward-deployed-selling
+/plugin install forward-deployed-selling@fds
 ```
 
-Then `/fds:context --business` once, and `/fds:icp`. `examples/getting-started.md` has a prompt for every command.
+The first line registers this repository as a marketplace named `fds`; the plugin appears in the `/plugin` Discover tab only after that. Then `/fds:context --business` once, and `/fds:icp`. `examples/getting-started.md` has a prompt for every command.
 
 **Claude.ai and Cowork:** upload the `skills/forward-deployed-selling/` folder under Settings → Capabilities → Skills. The doctrine, protocols, schemas and examples work there; the commands, hooks and agents are Claude Code features.
 
