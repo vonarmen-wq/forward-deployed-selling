@@ -54,6 +54,19 @@ Connect any CRM, mailbox, calendar, file store or knowledge base and the context
 
 The first line registers this repository as a marketplace named `fds`; the plugin appears in the `/plugin` Discover tab only after that. Then `/fds:context --business` once, and `/fds:icp`. `examples/getting-started.md` has a prompt for every command.
 
+**For a team:** add the marketplace and the plugin to the repository's shared `.claude/settings.json` and every teammate gets it on their next launch, with no commands to type:
+
+```json
+{
+  "extraKnownMarketplaces": {
+    "fds": { "source": { "source": "github", "repo": "vonarmen-wq/forward-deployed-selling" } }
+  },
+  "enabledPlugins": { "forward-deployed-selling@fds": true }
+}
+```
+
+Project memory is per repository, so a team that installs this way also shares one ledger and one set of ICP, GTM and Business Records.
+
 **Claude.ai and Cowork:** upload the `skills/forward-deployed-selling/` folder under Settings → Capabilities → Skills. The doctrine, protocols, schemas and examples work there; the commands, hooks and agents are Claude Code features.
 
 **Your own agents:** import `schemas/` for typed inputs and outputs, and `agents/doctrine-reviewer.md` as a reusable grader. The protocols are plain markdown.
