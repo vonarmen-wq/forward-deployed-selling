@@ -23,5 +23,5 @@ Operational SLAs in `canon.md` → Velocity are doctrine-defined thresholds, not
 - Field benchmarks from the ledger once N ≥ 30 per claim.
 - Nightly `signal-watch` Routine that runs the researcher diff and fires `/fds:revise` on a material change.
 - Claude Tag (Slack) entry point for `/fds:score` in deal channels.
-- CRM connector mapping for the Deal Record (Salesforce, HubSpot).
+- Connector mappings are prose the agent follows; a field-level test against a live Salesforce or HubSpot sandbox has not been run.
 - Whether plugin-shipped agents honor `memory: project` on every surface; if not, the ledger falls back to `fds/<account>/ledger.md` in the working directory.

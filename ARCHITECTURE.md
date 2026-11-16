@@ -14,6 +14,7 @@ skills/forward-deployed-selling/
   references/canon.md             Every definition, label, band, threshold, formula and gate.
                                   Wins any disagreement with any other file.
   schemas/                        Typed records each protocol consumes and emits.
+  connectors/                     Field maps from CRM, mail, calendar and file stores to those records.
   capabilities/                   Targeting and operational protocols (ICP, GTM, framing,
                                   coaching, disqualification, revision, convergence).
   references/                     Operational protocols (thesis, profiles, movements, velocity,
@@ -25,7 +26,8 @@ skills/forward-deployed-selling/
 
 commands/                         Twelve /fds:* commands. Each loads canon + one protocol,
                                   checks prerequisites, runs the gate, writes the ledger.
-agents/                           account-researcher (fetch-only), scorer (compute-only),
+agents/                           account-context (memory + connectors + web → Context Stack),
+                                  account-researcher (fetch-only), scorer (compute-only),
                                   doctrine-reviewer (grades what it did not write).
 hooks/                            Stop: blocks unlabeled numerals in artifacts.
                                   UserPromptSubmit: injects the Doctrine Constraint Layer.
@@ -52,6 +54,7 @@ A term is defined once, in `canon.md`. A protocol that needs a definition links 
 | Compress, don't skip | Movement Floor on the Familiarity sub-score |
 | Doctrine Constraint Layer | UserPromptSubmit hook |
 | Audit trail | ledger line per artifact, in project memory |
+| Private context stays private | Interaction layer from connectors or the seller only; connector reads are read-only and account-scoped |
 
 ## Voice
 

@@ -1,12 +1,13 @@
 ---
 description: Derive a go-to-market strategy (motion, channel, messaging anchor, artifacts, qualification criteria) from a qualified ICP.
 argument-hint: [icp name]
-allowed-tools: [Read, Write, WebSearch, WebFetch]
+allowed-tools: [Read, Write, WebSearch, WebFetch, Agent]
 ---
 
 Run the Forward Deployed Selling `gtm` protocol for: $ARGUMENTS
 
 1. Read `${CLAUDE_PLUGIN_ROOT}/skills/forward-deployed-selling/references/canon.md` for definitions, then `${CLAUDE_PLUGIN_ROOT}/skills/forward-deployed-selling/capabilities/gtm-strategy-protocol.md`.
+1a. Context. Read `fds/_business/` for the Business Record (what the seller sells; without one, ask for product, ACV band, persona and channel in one message, or point to `/fds:context --business`). Then, unless a Context Stack under 14 days old exists at `fds/<account>/context-*.md`, this command is segment-level, so no Context Stack is needed; the Business Record supplies proof, buyers-so-far and team capacity for the motion table.
 2. Prerequisites: ICP Record exists and is under one quarter old; otherwise run /fds:icp first.
    Consumes: ICP Record. Check project memory under `fds/<account>/` first; if a consumed record is missing or stale, produce it with its own command before continuing, and say so in one line.
 3. Read `${CLAUDE_PLUGIN_ROOT}/skills/forward-deployed-selling/examples/gtm-strategy.md` before generating, and match its structure.

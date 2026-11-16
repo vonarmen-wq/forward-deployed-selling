@@ -1,7 +1,7 @@
 {
   "name": "forward-deployed-selling",
   "displayName": "Forward Deployed Selling",
-  "description": "Operating doctrine for AI-era enterprise sales. Twelve /fds commands, three enforcing agents, two hooks, typed records, and evals. Use when an agent works on accounts, deals, outreach, coaching, or pipeline.",
+  "description": "Operating doctrine for AI-era enterprise sales. Thirteen /fds commands, four agents (context, research, scoring, review), two hooks, typed records, and evals. Use when an agent works on accounts, deals, outreach, coaching, or pipeline.",
   "version": "0.6.0",
   "author": {
     "name": "Angel Armendariz",

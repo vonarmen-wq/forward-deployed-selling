@@ -15,6 +15,9 @@ The doctrine is unchanged. The packaging is rebuilt so an agent can execute it a
 - Movement Floor keyed on the Familiarity sub-score.
 - Missing-data rule for FDRI and Velocity means (null excluded, not zeroed).
 - Ledger Entry per shipped artifact, in project memory, with a prediction field.
+- `/fds:context` with the `account-context` agent: assembles the five-layer Context Stack from project memory, connected systems, files and the public web, each row labeled by source; `--business` writes the Business Record once so `/fds:icp` stops interviewing the seller.
+- `connectors/`: field maps for Salesforce, HubSpot, mail, calendar and file stores into the Deal Record and Context Stack. Read-only, account-scoped, Interaction layer never from the web.
+- `schemas/business-record.md`, `schemas/context-stack.md`.
 - `CHANGELOG.md`.
 
 ### Changed

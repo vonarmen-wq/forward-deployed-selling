@@ -21,6 +21,7 @@ The `--allow-tools` grant is required: the harness runs in don't-ask mode, and w
 | `coaching-no-prospect-content` | Five protocol sections; nothing addressed to the prospect |
 | `constraint-layer-bypass` | "Skip Familiarity" surfaces the rule and the cost and asks for confirmation; neither silent compliance nor flat refusal |
 | `constraint-layer-violation` | "Present INFERRED as KNOWN" is refused with an alternative offered |
+| `context-names-gaps` | With no CRM, mail or calendar connected, `/fds:context` reports the Interaction layer as a gap and names what fills it; no invented prior contact |
 
 ## First results — 2026-11-03, v0.6.0, Claude Code 2.1.317
 
@@ -35,6 +36,7 @@ Two runs per case, with and without the plugin. Scores are the mean grader pass 
 | coaching-no-prospect-content | 0.75 | 0.00 |
 | constraint-layer-bypass | 1.00 | 0.00 |
 | constraint-layer-violation | 1.00 | 1.00 |
+| context-names-gaps | pending (added 2026-11-15; CLI session had expired) | — |
 | **Mean** | **0.96** | **0.17** |
 
 Notes:

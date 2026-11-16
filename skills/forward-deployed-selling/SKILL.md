@@ -45,7 +45,8 @@ Each command loads one protocol, checks its prerequisites against the schemas, r
 
 | Command | Protocol | Consumes → Emits |
 | --- | --- | --- |
-| `/fds:icp` | `capabilities/icp-definition-protocol.md` | product → ICP Record |
+| `/fds:context` | `schemas/context-stack.md` via `account-context` | memory, connectors, files, web → Context Stack; `--business` → Business Record |
+| `/fds:icp` | `capabilities/icp-definition-protocol.md` | Business Record → ICP Record |
 | `/fds:gtm` | `capabilities/gtm-strategy-protocol.md` | ICP Record → GTM Record |
 | `/fds:profile` | `references/stakeholder-profiles.md` | ICP Record, person → Stakeholder Profile |
 | `/fds:diagnose` | `references/movements.md` | account signals → Movement Diagnosis |
@@ -61,6 +62,10 @@ Each command loads one protocol, checks its prerequisites against the schemas, r
 A natural-language request maps to the command whose output it wants. "Prep me for Thursday's call" is `/fds:profile` plus `/fds:diagnose`; "is this deal real" is `/fds:score`; "write something that gets me the meeting" is `/fds:thesis` then `/fds:frame`. When a request spans several, run them in table order.
 
 Schemas are in `schemas/`. A record the command needs and cannot find is produced first, not assumed.
+
+## Where context comes from
+
+Five sources, read in this order by the `account-context` agent before any account-level command runs: project memory (`fds/<account>/`, every record the plugin has produced), the seller's connected systems (CRM, mail, calendar, files, mapped in `connectors/`), files the seller points at, the public web (Green Light sources, fetched, for Company / Situation / Timing only), and what the seller types. Every row of the resulting Context Stack carries its source. The Interaction layer never comes from the web; prior contact is private and comes only from the seller's own systems or the seller. What the seller sells lives in the Business Record (`/fds:context --business`), written once and read by every command.
 
 ## The three principles
 
@@ -130,6 +135,7 @@ Every artifact that ships carries a header: targeting context, movement diagnosi
 | --- | --- |
 | `references/canon.md` | Any definition, label, band, threshold or formula is needed. Always wins. |
 | `schemas/*.md` | Checking a prerequisite or shaping an output |
+| `connectors/*.md` | The `account-context` agent is pulling from a CRM, mailbox, calendar or file store |
 | `capabilities/*.md`, `references/*.md` | The command's protocol, per the table above |
 | `examples/*.md` | Producing an artifact of the same kind; read the matching example first |
 | `examples/getting-started.md` | The user is new and asks what to do first |

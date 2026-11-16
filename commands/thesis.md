@@ -7,6 +7,7 @@ allowed-tools: [Read, Write, WebSearch, WebFetch, Agent]
 Run the Forward Deployed Selling thesis protocol for: $ARGUMENTS
 
 1. Read `${CLAUDE_PLUGIN_ROOT}/skills/forward-deployed-selling/references/canon.md`, then `references/thesis-protocol.md` and `schemas/thesis.md`.
+1a. Context. Read `fds/_business/` for the Business Record (what the seller sells; without one, ask for product, ACV band, persona and channel in one message, or point to `/fds:context --business`). Then, unless a Context Stack under 14 days old exists at `fds/<account>/context-*.md`, launch the `account-context` agent for the account; it reads memory, any connected CRM, mail, calendar and files per `${CLAUDE_PLUGIN_ROOT}/skills/forward-deployed-selling/connectors/`, and the public web, and returns the five-layer Context Stack with sources. Use its Deal Record if it wrote one.
 2. Prerequisites, checked in project memory under `fds/<account>/`:
    - ICP Record exists and is under one quarter old. If not, run `/fds:icp` first and say so.
    - Movement Diagnosis exists and is under 30 days old. If not, run `/fds:diagnose` first.

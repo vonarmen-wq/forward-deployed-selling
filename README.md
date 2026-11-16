@@ -12,10 +12,12 @@ Forward Deployed Selling is the enterprise sales doctrine for a world where the 
 
 ## What you get
 
-Twelve commands. Each one runs a protocol, checks what it needs first, and refuses to ship a number it cannot source.
+Thirteen commands. Each one runs a protocol, checks what it needs first, and refuses to ship a number it cannot source.
 
 | Say | Run | Get |
 | --- | --- | --- |
+| "Here's what we sell" | `/fds:context --business` | A Business Record every other command reads, so you say it once |
+| "What do we know about this account?" | `/fds:context <account>` | A five-layer Context Stack from your CRM, mail, calendar, files and the public web, every row sourced |
 | "Who should we be selling this to?" | `/fds:icp` | A qualified Ideal Customer Profile: market, persona, channel, disqualifiers |
 | "Write something that earns the meeting" | `/fds:thesis <account>` | A sourced thesis and a one-page value provocation, every number labeled, independently reviewed |
 | "Prep me for Thursday" | `/fds:profile <name> at <account>` | Who they are in the deal (User, Buyer, Sponsor, Enabler), what moves them, what blocks them |
@@ -35,6 +37,7 @@ Most sales methodologies are advice. This one is enforced.
 - **The work doesn't grade itself.** A reviewer agent that did not write the artifact scores it against the five Output Standards and the Pride Test ("if the prospect asked how you knew that, would they be impressed or uneasy?").
 - **Pressure gets surfaced, not swallowed.** "Skip the relationship stage, quarter's on the line" triggers the Doctrine Constraint Layer: the agent names the rule, states the cost, and asks you to confirm. You can still do it. You can't do it silently.
 - **Silence has a rule.** The response window is computed per account (industry, deal size, seniority, channel, season), and reaching it triggers a signal check, never a nudge.
+- **It reads your systems, not just the web.** With Salesforce, HubSpot, Gmail, Calendar or Drive connected, the context agent fills the Deal Record and interaction history from them, read-only and scoped to the one account. Without them it tells you which layer is empty and what would fill it.
 - **It keeps score on itself.** Every artifact that ships writes one line to a ledger with its prediction. That ledger is what turns the doctrine's design targets into measured benchmarks over time.
 
 ## Install

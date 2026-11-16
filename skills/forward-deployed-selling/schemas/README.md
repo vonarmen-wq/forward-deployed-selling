@@ -4,6 +4,8 @@ Each protocol declares what it `consumes` and what it `emits` in its frontmatter
 
 | Record | Produced by | Current for |
 | --- | --- | --- |
+| Business Record | `/fds:context --business` | one quarter, or until pricing/references change |
+| Context Stack | `account-context` agent (any account command) | 14 days, or until a new signal |
 | ICP Record | `/fds:icp` | one quarter |
 | GTM Record | `/fds:gtm` | one quarter, or until the ICP changes |
 | Stakeholder Profile | `/fds:profile` | 90 days |
@@ -19,4 +21,4 @@ Each protocol declares what it `consumes` and what it `emits` in its frontmatter
 | Mobilization Request | `/fds:converge` | until fulfilled |
 | Ledger Entry | every command | permanent |
 
-Field definitions: `icp-record.md`, `stakeholder-profile.md`, `deal-record.md`, `thesis.md`, `score-card.md`, `coaching-artifact.md`. Records not listed there (GTM Record, Movement Diagnosis, Evidence Table, Value Provocation, Velocity Profile, Disqualification Memo, Mobilization Request) use the output template in their protocol file. Ledger Entry is defined in `references/canon.md`.
+Field definitions: `business-record.md`, `context-stack.md`, `icp-record.md`, `stakeholder-profile.md`, `deal-record.md`, `thesis.md`, `score-card.md`, `coaching-artifact.md`. Records not listed there (GTM Record, Movement Diagnosis, Evidence Table, Value Provocation, Velocity Profile, Disqualification Memo, Mobilization Request) use the output template in their protocol file. Ledger Entry is defined in `references/canon.md`.
