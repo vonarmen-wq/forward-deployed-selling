@@ -52,7 +52,7 @@ Connect any CRM, mailbox, calendar, file store or knowledge base and the context
 /plugin install forward-deployed-selling@fds
 ```
 
-The first line registers this repository as a marketplace named `fds`; the plugin appears in the `/plugin` Discover tab only after that. Then `/fds:context --business` once, and `/fds:icp`. `examples/getting-started.md` has a prompt for every command.
+The first line registers this repository as a marketplace named `fds`; the plugin appears in the `/plugin` Discover tab only after that. Then `/fds:context --business` once, and `/fds:icp`. [`skills/forward-deployed-selling/examples/getting-started.md`](skills/forward-deployed-selling/examples/getting-started.md) has a prompt for every command.
 
 **For a team:** add the marketplace and the plugin to the repository's shared `.claude/settings.json` and every teammate gets it on their next launch, with no commands to type:
 
@@ -69,7 +69,7 @@ Project memory is per repository, so a team that installs this way also shares o
 
 **Claude.ai and Cowork:** upload the `skills/forward-deployed-selling/` folder under Settings → Capabilities → Skills. The doctrine, protocols, schemas and examples work there; the commands, hooks and agents are Claude Code features.
 
-**Your own agents:** import `schemas/` for typed inputs and outputs, and `agents/doctrine-reviewer.md` as a reusable grader. The protocols are plain markdown.
+**Your own agents:** import [`skills/forward-deployed-selling/schemas/`](skills/forward-deployed-selling/schemas/) for typed inputs and outputs, and `agents/doctrine-reviewer.md` as a reusable grader. The protocols are plain markdown.
 
 ## What is measured
 
