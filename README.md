@@ -49,10 +49,10 @@ Connect any CRM, mailbox, calendar, file store or knowledge base and the context
 
 ```
 /plugin marketplace add vonarmen-wq/forward-deployed-selling
-/plugin install forward-deployed-selling@fds
+/plugin install fds@fds
 ```
 
-The first line registers this repository as a marketplace named `fds`; the plugin appears in the `/plugin` Discover tab only after that. Then `/fds:context --business` once, and `/fds:icp`. [`skills/forward-deployed-selling/examples/getting-started.md`](skills/forward-deployed-selling/examples/getting-started.md) has a prompt for every command.
+The first line registers this repository as a marketplace named `fds`; the plugin appears in the `/plugin` Discover tab only after that. Installed before Nov 20, 2026? The plugin was then named `forward-deployed-selling`, and its commands lived at `/forward-deployed-selling:…`; run `/plugin uninstall forward-deployed-selling@fds` and install again. Then `/fds:context --business` once, and `/fds:icp`. [`skills/forward-deployed-selling/examples/getting-started.md`](skills/forward-deployed-selling/examples/getting-started.md) has a prompt for every command.
 
 **For a team:** add the marketplace and the plugin to the repository's shared `.claude/settings.json` and every teammate gets it on their next launch, with no commands to type:
 
@@ -61,7 +61,7 @@ The first line registers this repository as a marketplace named `fds`; the plugi
   "extraKnownMarketplaces": {
     "fds": { "source": { "source": "github", "repo": "vonarmen-wq/forward-deployed-selling" } }
   },
-  "enabledPlugins": { "forward-deployed-selling@fds": true }
+  "enabledPlugins": { "fds@fds": true }
 }
 ```
 
