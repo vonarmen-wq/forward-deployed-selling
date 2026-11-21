@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.6.1 — 2026-11-20
+
+### Fixed
+- Plugin renamed from `forward-deployed-selling` to `fds`. Claude Code namespaces commands by the plugin name, so under 0.6.0 the commands were installed as `/forward-deployed-selling:thesis` while every document said `/fds:thesis`. The install line is now `/plugin install fds@fds`; the marketplace name is unchanged. Anyone on 0.6.0: `/plugin uninstall forward-deployed-selling@fds`, then install again.
+
 ## 0.6.0 — 2026-11-03
 
 The doctrine's content carries over from 0.5; this release rebuilds the packaging so an agent can execute it and a harness can enforce it.

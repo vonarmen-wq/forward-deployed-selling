@@ -6,7 +6,7 @@
   },
   "plugins": [
     {
-      "name": "forward-deployed-selling",
+      "name": "fds",
       "source": "./",
       "description": "Operating doctrine for AI-era enterprise sales: thirteen /fds commands, enforcing hooks, four agents, typed records, connector maps, evals."
     }
