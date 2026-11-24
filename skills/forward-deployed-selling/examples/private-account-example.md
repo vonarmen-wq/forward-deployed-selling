@@ -3,7 +3,7 @@ Synthetic example. Companies, people, figures and sources are invented to illust
 # Evidence Table and Thesis — Halvard Logistics Software (private)
 Targeting: ICP Mid-market B2B SaaS, revenue operations (qualified 2026-11-03) · Account type: private · Movement: A3/F2/V1 · Protocol: thesis-protocol.md · Gate: 5/5 · Output Standards: 5/5 · Window: 14 business days
 
-Generated 2026-11-24. Demonstrates the private-account path end to end: the public/private decision, the private source ladder in `agents/account-researcher.md`, named inference methods, the triangulation rule, the private stop rule in `canon.md`, and a thesis whose Signal and Hypothesis rest only on `KNOWN` rows and medium-or-better `INFERRED` rows. The seller is Lattice Revenue Systems (`examples/icp-definition.md`). Read it before researching any account that does not file with the SEC.
+Generated 2026-11-24. Demonstrates the private-account path end to end: the public/private decision, the private source ladder in `agents/account-researcher.md`, named inference methods, the triangulation rule, the private stop rule in `canon.md`, and a thesis whose Signal and Hypothesis rest only on `KNOWN` rows and medium-or-better `INFERRED` rows. The seller is Lattice Revenue Systems (`examples/business-record.md`, `examples/icp-definition.md`). Read it before researching any account that does not file with the SEC.
 
 ---
 

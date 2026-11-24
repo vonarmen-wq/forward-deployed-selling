@@ -139,6 +139,7 @@ Every artifact that ships carries a header with the targeting context, the movem
 | `capabilities/*.md`, `references/*.md` | The command's protocol, per the table above |
 | `examples/*.md` | Producing an artifact of the same kind; read the matching example first |
 | `examples/getting-started.md` | The user is new and asks what to do first |
+| `examples/business-record.md` | Seeding a project with the synthetic seller (Lattice) so the other examples run end to end |
 | `examples/private-account-example.md` | The account does not file with the SEC; read before researching any private company |
 | `foundations.md` | Writing an essay, brief, or teaching session about the doctrine itself. Not for artifact generation. |
 

@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.7.1 — 2026-11-24
+
+### Added
+- `examples/business-record.md`: the synthetic seller-side Business Record for Lattice Revenue Systems, the record behind the ICP, GTM and private-account examples. Seed it at `fds/_business/lattice-pipeline.md` to run the examples end to end; until now the ICP example was the only place the product was described, and it is not a Business Record.
+
 ## 0.7.0 — 2026-11-24
 
 Research now works on companies that do not file with the SEC, which is most of the mid-market.
