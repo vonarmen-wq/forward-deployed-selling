@@ -193,6 +193,18 @@ Project memory, under `fds/`. Account records at `fds/<account>/<record>.md`; th
 
 The researcher stops when the evidence table holds ≥3 KNOWN rows with URLs across ≥2 source types and at least one Strategic Intent row, or after 40 fetched pages without reaching that. Agents have no clock; the budget is pages, not minutes.
 
+## Private accounts
+
+Every account carries `account_type: public | private`, decided by the researcher before any search: public means an SEC CIK with a 10-K or 20-F in the last 18 months or an equivalent listed-company filing; private means anything else. The flag sits on the Evidence Table, the Context Stack and the Thesis header.
+
+Private accounts use the private source ladder and the inference-method table in `agents/account-researcher.md`. The method name in an `INFERRED` label must be one of those methods, written exactly (`INFERRED [hiring pattern] [medium]`).
+
+**Stop rule, private accounts.** ≥3 `KNOWN` rows with URLs across ≥2 source types from ladder tiers 1–4, at least one Strategic Intent row in a named executive's own words, and at least one `INFERRED` row at medium or better by the triangulation rule; or 40 fetched pages. Budget exhaustion returns the account to the Awareness action class exactly as for a public account.
+
+**Triangulation rule.** An `INFERRED` row rises one confidence level when a second independent method lands in the same band, falls to low when any method contradicts it. Methods that share an input are not independent. Two agreeing methods make medium; three make high.
+
+**Low rows carry nothing.** An `INFERRED [...] [low]` row may appear as context only. It never supplies the Signal, the Hypothesis, `value_at_stake`, or any figure on a buyer-facing page. Presenting a low row in one of those positions is a Doctrine Constraint Layer violation of the same class as relabeling `INFERRED` as `KNOWN`; the Stop hook flags it.
+
 ## Versioning
 
 Semver in `.claude-plugin/plugin.json` only. Protocol files carry no version or date in frontmatter. `CHANGELOG.md` at the repo root records what changed.

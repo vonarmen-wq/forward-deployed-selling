@@ -7,6 +7,7 @@ Stored at `fds/<account>/context-<date>.md`. Current for 14 days or until a new 
 ```
 context:
   account:
+  account_type:       public | private
   as_of:
   company:            # what the organization is doing
     - {finding, label: KNOWN [url|connector:object] | INFERRED [method] [confidence]}

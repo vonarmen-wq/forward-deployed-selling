@@ -9,6 +9,8 @@ How the `account-context` agent fills the Deal Record and Context Stack from the
 | Gmail / Outlook | `mail.md` | Context Stack · interaction, engagement_context on the Stakeholder Profile |
 | Google / Outlook Calendar | `calendar.md` | Context Stack · interaction (meetings), timing |
 | Google Drive / SharePoint | `files.md` | Business Record · proof, Context Stack · company (prior decks, notes) |
+| PitchBook (optional, paid) | `pitchbook.md` | Context Stack · company (financial signals), account_type, timing |
+| Crunchbase (optional, paid) | `crunchbase.md` | Context Stack · company (financial signals), account_type, timing |
 | Any other CRM, knowledge base, warehouse, recorder or MCP server | `generic.md` | Discovered once by field meaning, mapping saved to project memory, corrected by the seller |
 
 A source with no named map is handled by `generic.md`: the agent classifies it, probes one record, maps fields by meaning to the fixed FDS schema, and saves the map. No connector present → the agent says so, and the fields stay `unknown`. The agent never substitutes web data for an Interaction-layer field; prior contact is private data and comes only from these sources or the seller.

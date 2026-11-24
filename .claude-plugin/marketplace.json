@@ -8,7 +8,7 @@
     {
       "name": "fds",
       "source": "./",
-      "description": "Operating doctrine for AI-era enterprise sales: thirteen /fds commands, enforcing hooks, four agents, typed records, connector maps, evals."
+      "description": "Operating doctrine for AI-era enterprise sales: thirteen /fds commands, enforcing hooks, four agents, typed records, connector maps, evals, and research that works on private companies."
     }
   ],
   "description": "Forward Deployed Selling: the enterprise sales doctrine for the AI era, as a Claude Code plugin."

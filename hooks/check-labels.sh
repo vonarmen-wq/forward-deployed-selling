@@ -8,7 +8,9 @@
 #     prospect, Bridge, Subject:) carry no labels, but every figure on them must
 #     also appear on a labeled line elsewhere in the same artifact;
 #   - dates, versions, scores, tiers, window arithmetic and table/list markup
-#     are not figures.
+#     are not figures;
+#   - an INFERRED [...] [low] row may not sit under a Signal, Hypothesis or
+#     Value-at-stake heading (canon → Private accounts: low rows carry nothing).
 set -euo pipefail
 input="$(cat)"
 transcript="$(printf '%s' "$input" | python3 -c 'import sys,json; print(json.load(sys.stdin).get("transcript_path",""))' 2>/dev/null || true)"
@@ -39,6 +41,8 @@ LABEL = re.compile(r"(KNOWN\s*\[[^\]]+\]|INFERRED\s*\[[^\]]+\]\s*\[[^\]]+\]|\[de
 DATE = re.compile(r"\b\d{4}-\d{2}-\d{2}\b")
 SKIP_PREFIX = re.compile(r"^(#|\||-{3,}|Targeting:|Movement:|Protocol:|Gate:|Output Standards:|Window|Version|Tier|Composite|FDRI|Velocity|Score|Date|As of|Generated|Delivered|Revision|Ledger|composite\s*=|W\s*=)", re.I)
 BUYER_HEAD = re.compile(r"^#{1,6}\s.*(provocation|note to the prospect|bridge|buyer-facing)", re.I)
+CORE_HEAD = re.compile(r"^#{1,6}\s.*(\bsignal\b|hypothesis|value at stake|value_at_stake)", re.I)
+LOW = re.compile(r"INFERRED\s*\[[^\]]+\]\s*\[\s*low\s*\]", re.I)
 ANY_HEAD = re.compile(r"^#{1,6}\s")
 
 def norm(tok):
@@ -46,12 +50,17 @@ def norm(tok):
 
 labeled_figs, buyer_lines, offenders = set(), [], []
 in_buyer = False
+in_core = False
 for ln in last.splitlines():
     s = ln.strip()
     if not s:
         continue
     if ANY_HEAD.match(s):
         in_buyer = bool(BUYER_HEAD.match(s))
+        in_core = bool(CORE_HEAD.match(s))
+        continue
+    if in_core and LOW.search(s):
+        offenders.append(f"[low-confidence inference under a Signal/Hypothesis/Value-at-stake heading] {s[:140]}")
         continue
     if s.lower().startswith("subject:"):
         in_buyer = True
@@ -78,6 +87,6 @@ for text, figs in buyer_lines:
 if offenders:
     reason = ("FDS Hallucination Protocol: figures without a label in an artifact that carries a protocol header. "
               "Each needs KNOWN [url], INFERRED [method] [confidence], [design target], or 'stated by seller'; a figure on a buyer-facing page "
-              "must appear labeled in the evidence table or arithmetic above it. Offending lines:\n- " + "\n- ".join(offenders[:8]))
+              "must appear labeled in the evidence table or arithmetic above it; an INFERRED [...] [low] row may not carry the Signal, Hypothesis or Value at stake. Offending lines:\n- " + "\n- ".join(offenders[:8]))
     print(json.dumps({"decision": "block", "reason": reason}))
 PY
