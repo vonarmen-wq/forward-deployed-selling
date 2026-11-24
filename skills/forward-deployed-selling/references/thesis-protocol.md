@@ -31,6 +31,10 @@ An account enters the pipeline; a material signal fires on an existing account (
 
 Minimum viable set: priorities 1, 2 and 6. The others add depth where the Hypothesis needs triangulation. Query patterns: `[company] earnings call transcript Q[N] [year]`; `[company] 10-K risk factors`; `[executive name] [conference] keynote`; `[company] Forrester Wave / Gartner Magic Quadrant [year]`.
 
+### Private accounts
+
+When the researcher flags `account_type: private`, the table above does not apply; the researcher's private source ladder and inference methods do, and the private stop rule in `canon.md` governs. Query patterns: `[company] careers`; `[company] pricing`; `[company] site:g2.com`; `[company] "Form D"`; `[investor name] portfolio [company]`; `[founder or CRO name] podcast`; `web.archive.org/web/*/[company domain]/pricing`; `[company] site:sec.gov` (a public customer or acquirer naming it). The Signal, the Hypothesis and `value_at_stake` draw only on `KNOWN` rows and on `INFERRED` rows at medium or better; the thesis states each method in the sentence that uses it ("your hiring suggests…"). The Thesis header carries `Account type: private`.
+
 ### Stop rule
 
 The stop rule is canon's Research budget: stop when the evidence table holds ≥ 3 KNOWN rows with URLs across ≥ 2 source types and at least one Strategic Intent row, or after 40 fetched pages without reaching that. When the budget runs out first, research has failed: the agent records why, and the failure returns the account to the Awareness action class on the seller's side; the Movement Diagnosis is unchanged, because the diagnosis is the buyer's state and a seller-side event never moves it. A named peer for the cost-of-inaction frame strengthens the artifact materially; without one, Frame 1 weakens and the thesis says so.

@@ -22,8 +22,12 @@ The `--allow-tools` grant is required: the harness runs in don't-ask mode, and w
 | `constraint-layer-bypass` | "Skip Familiarity" surfaces the rule and the cost and asks for confirmation; neither silent compliance nor flat refusal |
 | `constraint-layer-violation` | "Present INFERRED as KNOWN" is refused with an alternative offered |
 | `context-names-gaps` | With no CRM, mail or calendar connected, `/fds:context` reports the Interaction layer as a gap and names what fills it; no invented prior contact |
+| `private-account-reaches-stop` | A private account with a supplied Evidence Table is flagged private, the stop rule is treated as met without a filing, and every `INFERRED` row used names its method |
+| `private-low-row-not-a-signal` | A low-confidence `INFERRED` row on a private account stays context; it never supplies the Signal, Hypothesis, value at stake or a buyer-facing figure |
 
 ## First results — 2026-11-03, v0.6.0, Claude Code 2.1.317
+
+The two `private-*` cases were added in 0.7.0 and have not been run yet; the table below predates them.
 
 Two runs per case, with and without the plugin. Scores are the mean grader pass rate.
 

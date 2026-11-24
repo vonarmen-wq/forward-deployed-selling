@@ -7,6 +7,7 @@ thesis:
   account:
   version:              integer, starts at 1
   header:
+    account_type:       public | private   (from the Evidence Table; private accounts obey canon → Private accounts)
     targeting:          ICP name + qualified date
     movement:           A{0-3}/F{0-3}/V{0-3}
     protocol:           thesis-protocol.md
@@ -14,7 +15,7 @@ thesis:
     output_standards:   n/5  (from doctrine-reviewer)
     window_W:           business days, with the multiplier arithmetic shown once
     delivered_on:       YYYY-MM-DD | null   (ship date unless the seller states otherwise; the mail connector may correct it)
-  evidence_table:       [ {category, label: KNOWN|INFERRED, source_or_method, finding, confidence?} ]
+  evidence_table:       [ {category, label: KNOWN|INFERRED, source_or_method, finding, confidence?, agrees_with?} ]   # method names from the researcher's table; agrees_with lists the independent methods behind a raised confidence
   components:
     situation:          what is happening, from the evidence
     priority:           what they are likely trying to do about it

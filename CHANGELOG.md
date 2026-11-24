@@ -1,5 +1,22 @@
 # Changelog
 
+## 0.7.0 — 2026-11-24
+
+Research now works on companies that do not file with the SEC, which is most of the mid-market.
+
+### Added
+- `agents/account-researcher.md`: a public/private decision before any search; a nine-tier source ladder for private accounts (the company's own surface and careers page, Form D and other regulatory residue, investor and acquirer disclosures, marketplace and review exhaust, stack footprint, site snapshots over time, headcount aggregates, peer benchmarks, trade press); a table of the ten allowed inference methods with starting confidence; the triangulation rule.
+- `references/canon.md` → Private accounts: the `account_type` flag, the private stop rule, the triangulation rule, and the rule that a low-confidence row never carries the Signal, Hypothesis, value at stake or a buyer-facing figure.
+- `references/thesis-protocol.md` → Private accounts: query patterns and what the thesis may build on.
+- `schemas/thesis.md`, `schemas/context-stack.md`: `account_type`; evidence rows carry `agrees_with`.
+- `hooks/check-labels.sh`: blocks an `INFERRED [...] [low]` row under a Signal, Hypothesis or Value-at-stake heading.
+- `examples/private-account-example.md`: a synthetic private account worked end to end, from Form D and careers page to thesis, with the triangulation shown.
+- `evals/private-account-reaches-stop`, `evals/private-low-row-not-a-signal`.
+- `connectors/pitchbook.md`, `connectors/crunchbase.md`: optional paid sources as one more `KNOWN` source type.
+
+### Unchanged
+- The doctrine, the labels, the gates and the public-account ladder.
+
 ## 0.6.1 — 2026-11-20
 
 ### Fixed
