@@ -2,7 +2,7 @@
   "name": "fds",
   "displayName": "Forward Deployed Selling",
   "description": "Operating doctrine for AI-era enterprise sales. Thirteen /fds commands, four agents (context, research, scoring, review), two hooks, typed records, evals, and a private-company evidence ladder. Use when an agent works on accounts, deals, outreach, coaching, or pipeline.",
-  "version": "0.7.0",
+  "version": "0.7.1",
   "author": {
     "name": "Angel Armendariz (Caerus Capital Group, LLC)",
     "url": "https://forwarddeployedselling.com"
